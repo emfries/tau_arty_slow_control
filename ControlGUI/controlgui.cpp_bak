@@ -1,0 +1,1454 @@
+#include "controlgui.h"
+#include "ui_controlgui.h"
+#include <QMessageBox>
+#include <zmq.h>
+#include <QFileDialog>
+#include <assert.h>
+#include <QProcess>
+#include <errno.h>
+#include <QDateTime>
+
+// Set TESTMODE to 1 to disable actually opening the Labjack device
+#define TESTMODE 0
+#define BLIND 1
+#define DEBUG_BLIND 0
+
+// const QString ControlGUI::kControlDir = "/Users/clayton/UCN/Lifetime/RunFY2016/TauControl/";
+const QString ControlGUI::kControlDir = "/home/daq/TauControl/";
+
+// These are the Labjack digital IO channels
+const int ControlGUI::kHmGXSignal   = 4;     // FIO4 (input),
+const int ControlGUI::kGoLine       = 8+8;   // EIO8 (Output),
+
+const int ControlGUI::kBeamEnableCh = 8+7;   // FIO2 --> EIO0(Nov2017)
+const int ControlGUI::kGateValveCh  = 8+0;   // 8+2;   // EIO2  --> EIO2(Nov2017)
+const int ControlGUI::kCleanerCh    = 8+1;   // EIO1/S1
+const int ControlGUI::kTimingCh     = 8+8+3; // CIO3, we'll turn this on/off quickly to make a pulse for each event
+const int ControlGUI::kDaqTriggerCh = 8+6;   // EIO6.
+const int ControlGUI::kButterflyCh  = 8+5;   // EIO5
+
+// Change these if necessary to get the logic sense correct:
+//   1 ("true") means Labjack output HIGH (+3.3V).
+const bool ControlGUI::kDaqRunning       = 0; // 0 if using the IF-D95T photodiode
+const bool ControlGUI::kBeamOn           = 1;
+const bool ControlGUI::kGateValveOpen    = 1;
+const bool ControlGUI::kCleanerDown      = 1;
+const bool ControlGUI::kButterflyClosed  = 1;
+
+
+ControlGUI::ControlGUI(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::ControlGUI)
+{
+    ui->setupUi(this);
+
+#if !TESTMODE
+    openLabjack();
+    // Configure channels as outputs and set inital states upon startup.
+    long configIO = 1;
+    long state;
+    eDI(hDevice, configIO, kHmGXSignal, &state);
+    eDI(hDevice, configIO, kGoLine, &state);
+
+    eDO(hDevice, configIO, kBeamEnableCh, 0); // start up with beam off,
+    eDO(hDevice, configIO, kGateValveCh , 0); // gate valve closed,
+    eDO(hDevice, configIO, kCleanerCh   , 0); // cleaner up,
+    eDO(hDevice, configIO, kDaqTriggerCh, 0); // daq not triggered,
+    eDO(hDevice, configIO, kButterflyCh , 0); // butterfly valve open.
+    for(int i = 8 ; i < 19 ; i++)eDO(hDevice, configIO, i , 0); // butterfly valve open.
+#endif
+    // these should be set consistent with the above conditions
+    ui->beamEnableRadio->setChecked(false);
+    ui->gateValveRadio->setChecked(false);
+    ui->cleanerRadio->setChecked(false);
+    ui->butterflyRadio->setChecked(false);
+
+    // Set up the ZeroMQ connections to the trap door and dagger servers
+    context = zmq_ctx_new();
+    socket_dagger = zmq_socket(context, ZMQ_REQ);
+    socket_giantCleaner = zmq_socket(context, ZMQ_REQ);
+    socket_trapdoor = zmq_socket(context, ZMQ_REQ);
+    socket_daq = zmq_socket(context,ZMQ_REQ);
+    int timeout = 10000;
+    zmq_setsockopt(socket_daq   ,ZMQ_RCVTIMEO,&timeout, sizeof (timeout));
+    int rc = zmq_connect(socket_dagger, "ipc:///tmp/zeromq_dagger");
+    assert(rc == 0);
+    rc = zmq_connect(socket_giantCleaner, "ipc:///tmp/zeromq_giantCleaner");
+    assert(rc == 0);
+    rc = zmq_connect(socket_trapdoor, "ipc:///tmp/zeromq_trapdoor");
+    assert(rc == 0);
+    rc = zmq_connect(socket_daq, "ipc:///tmp/zeromq_daq");
+    assert(rc == 0);
+
+    printf("Getting dagger position from server...");
+    fflush(stdout);
+    get_zdagger();   // update GUI based on present dagger height
+    printf("Done.\n");
+    printf("Getting giant cleaner position from server...");
+    fflush(stdout);
+    get_zGiantCleaner();   // update GUI based on present cleaner height
+    printf("Done.\n");
+    printf("Getting trapdoor state from server...");
+    fflush(stdout);
+    get_trapdoor_state(); // update GUI based on present trapdoor state
+    printf("Done.\n");
+    fflush(stdout);
+    override_list=false;
+    // add a progress indicator to the timing plot:
+    progressLine = new QCPItemLine(ui->plot);
+    ui->plot->addItem(progressLine);
+    progressLine->start->setCoords(0., -1.);
+    progressLine->end->setCoords(0., 7.);
+    progressLine->setVisible(false);
+
+    ui->loadfileNumber_button->setEnabled(false);
+    ui->abortButton->setEnabled(false);
+
+    waitForGoTimer = new QTimer(this);
+    waitForGoTimer->setSingleShot(true);
+    connect(waitForGoTimer, SIGNAL(timeout()),
+            this, SLOT(waitForGoThenStart()));
+
+    beamTransitionTimer = new QTimer(this);
+    beamTransitionTimer->setSingleShot(true);
+    beamTransitionTimer->setTimerType(Qt::PreciseTimer);
+    connect(beamTransitionTimer, SIGNAL(timeout()),
+            this, SLOT(doNextBeamTransition()));
+    gateValveTransitionTimer = new QTimer(this);
+    gateValveTransitionTimer->setSingleShot(true);
+    gateValveTransitionTimer->setTimerType(Qt::PreciseTimer);
+    connect(gateValveTransitionTimer, SIGNAL(timeout()),
+            this, SLOT(doNextGateValveTransition()));
+    cleanerTransitionTimer = new QTimer(this);
+    cleanerTransitionTimer->setSingleShot(true);
+    cleanerTransitionTimer->setTimerType(Qt::PreciseTimer);
+    connect(cleanerTransitionTimer, SIGNAL(timeout()),
+            this, SLOT(doNextCleanerTransition()));
+    trapdoorTransitionTimer = new QTimer(this);
+    trapdoorTransitionTimer->setSingleShot(true);
+    trapdoorTransitionTimer->setTimerType(Qt::PreciseTimer);
+    connect(trapdoorTransitionTimer, SIGNAL(timeout()),
+            this, SLOT(doNextTrapdoorTransition()));
+    daggerTransitionTimer = new QTimer(this);
+    daggerTransitionTimer->setSingleShot(true);
+    daggerTransitionTimer->setTimerType(Qt::PreciseTimer);
+    connect(daggerTransitionTimer, SIGNAL(timeout()),
+            this, SLOT(doNextDaggerTransition()));
+    giantCleanerTransitionTimer = new QTimer(this);
+    giantCleanerTransitionTimer->setSingleShot(true);
+    giantCleanerTransitionTimer->setTimerType(Qt::PreciseTimer);
+    connect(giantCleanerTransitionTimer, SIGNAL(timeout()),
+            this, SLOT(doNextGiantCleanerTransition()));
+    butterflyTransitionTimer = new QTimer(this);
+    butterflyTransitionTimer->setSingleShot(true);
+    butterflyTransitionTimer->setTimerType(Qt::PreciseTimer);
+    connect(butterflyTransitionTimer, SIGNAL(timeout()),
+            this, SLOT(doNextButterflyTransition()));
+
+    elapsedTimer = new QTimer(this);
+    connect(elapsedTimer, SIGNAL(timeout()),
+            this, SLOT(updateElapsedTime()));
+
+    // Explicitly connect all the signals to slots.
+    connect(ui->beamEnableRadio, SIGNAL(toggled(bool)),
+            this, SLOT(beamEnable_toggled(bool)));
+    connect(ui->gateValveRadio, SIGNAL(toggled(bool)),
+            this, SLOT(gateValve_toggled(bool)));
+    connect(ui->trapdoorComboBox, SIGNAL(currentIndexChanged(int)),
+            this, SLOT(trapdoor_index_changed(int)));
+    connect(ui->cleanerRadio, SIGNAL(toggled(bool)),
+            this, SLOT(cleaner_toggled(bool)));
+    connect(ui->daggerPushButton, SIGNAL(clicked()),
+            this, SLOT(dagger_button_pushed()));
+    connect(ui->giantCleanerPushButton, SIGNAL(clicked()),
+            this, SLOT(giantCleaner_button_pushed()));
+    connect(ui->butterflyRadio, SIGNAL(toggled(bool)),
+            this, SLOT(butterfly_toggled(bool)));
+
+    connect(ui->openFileButton, SIGNAL(clicked()),
+            this, SLOT(openFile_clicked()));
+
+    connect(ui->startButton, SIGNAL(clicked()),
+            this, SLOT(startButton_clicked()));
+    connect(ui->abortButton, SIGNAL(clicked()),
+            this, SLOT(abortButton_clicked()));
+    
+    get_midas_odb();
+}
+
+ControlGUI::~ControlGUI()
+{
+#if !TESTMODE
+    closeLabjack();
+#endif
+    delete ui;
+}
+
+void ControlGUI::get_zdagger()
+{
+    zmq_send(socket_dagger, "GET Z", 5, 0);
+    int nbytes = zmq_recv(socket_dagger, dagger_recv_buffer, dagger_recv_buffer_size-1, 0);
+    assert(nbytes != -1);
+    dagger_recv_buffer[nbytes] = '\0'; // properly NULL terminate received string
+    QString zdagger_str(dagger_recv_buffer);
+    QStringList fields = zdagger_str.split(" ");
+    if(fields.size() != 2) {
+        ui->textBrowser->append(QString("Invalid reply from dagger server: ") + zdagger_str);
+    }
+    bool ok = false;
+    double val = fields[1].toDouble(&ok);
+    if(!ok) {
+        ui->textBrowser->append(QString("Problem getting dagger position from server: ") + zdagger_str);
+    }
+    ui->textBrowser->append(QString("zdagger = %1").arg(val));
+    ui->daggerSpinBox->setValue(val);
+}
+
+void ControlGUI::get_zGiantCleaner()
+{
+    zmq_send(socket_giantCleaner, "GET Z", 5, 0);
+    int nbytes = zmq_recv(socket_giantCleaner, giantCleaner_recv_buffer, giantCleaner_recv_buffer_size-1, 0);
+    assert(nbytes != -1);
+    giantCleaner_recv_buffer[nbytes] = '\0'; // properly NULL terminate received string
+    QString zGiantCleaner_str(giantCleaner_recv_buffer);
+    QStringList fields = zGiantCleaner_str.split(" ");
+    if(fields.size() != 2) {
+        ui->textBrowser->append(QString("Invalid reply from giant cleaner server: ") + zGiantCleaner_str);
+    }
+    bool ok = false;
+    double val = fields[1].toDouble(&ok);
+    if(!ok) {
+        ui->textBrowser->append(QString("Problem getting giant cleaner position from server: ") + zGiantCleaner_str);
+    }
+    ui->textBrowser->append(QString("zGiantCleaner = %1").arg(val));
+    ui->giantCleanerSpinBox->setValue(val);
+}
+
+void ControlGUI::reset_dagger_velacceldecel()
+{
+    zmq_send(socket_dagger, "RESET VEL", 9, 0);
+    int nbytes = zmq_recv(socket_dagger, dagger_recv_buffer, dagger_recv_buffer_size-1, 0);
+    assert(nbytes != -1);
+    dagger_recv_buffer[nbytes] = '\0'; // properly NULL terminate received string
+    QString dagger_str(dagger_recv_buffer);
+    ui->textBrowser->append(QString("Reset dagger vel.") + dagger_str);
+}
+
+void ControlGUI::reset_giantCleaner_velacceldecel()
+{
+    zmq_send(socket_giantCleaner, "RESET VEL", 9, 0);
+    int nbytes = zmq_recv(socket_giantCleaner, giantCleaner_recv_buffer, giantCleaner_recv_buffer_size-1, 0);
+    assert(nbytes != -1);
+    giantCleaner_recv_buffer[nbytes] = '\0'; // properly NULL terminate received string
+    QString giantCleaner_str(giantCleaner_recv_buffer);
+    ui->textBrowser->append(QString("Reset giant cleaner vel.") + giantCleaner_str);
+}
+
+
+void ControlGUI::get_trapdoor_state()
+{
+    zmq_send(socket_trapdoor, "GET STATE", 9, 0);
+    int nbytes = zmq_recv(socket_trapdoor, trapdoor_recv_buffer, trapdoor_recv_buffer_size-1, 0);
+    assert(nbytes != -1);
+    trapdoor_recv_buffer[nbytes] = '\0'; // properly NULL terminate received string
+    QString trapdoor_str(trapdoor_recv_buffer);
+    QStringList fields = trapdoor_str.split(" ");
+    if(fields.size() != 3) {
+        ui->textBrowser->append(QString("Invalid reply from trapdoor server: ") + trapdoor_str);
+    }
+    QString state_str = fields[2];
+    int i_item = ui->trapdoorComboBox->findText(state_str);
+    if(i_item < 0) {
+        ui->textBrowser->append("Problem getting trapdoor state from server");
+    } else {
+        ui->trapdoorComboBox->setCurrentIndex(i_item);
+    }
+}
+
+
+void ControlGUI::openLabjack()
+{
+    localID = -1; // Open first found U3 over USB
+    if ( (hDevice = openUSBConnection(localID)) == NULL) {
+        QMessageBox::critical(this, tr("Labjack Setup"),
+                              "Unable to open Labjack");
+        exit(0);
+    }
+
+    return;
+}
+
+void ControlGUI::closeLabjack()
+{
+    closeUSBConnection(hDevice);
+}
+
+void ControlGUI::openFile_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this, tr("Open run file"), kControlDir + "RunFiles");
+
+    if(filename == "") {
+        ui->textBrowser->append("File open cancelled.");
+        return;
+    }
+
+    ui->filenameLineEdit->setText(filename);
+
+    runFileNames.clear();
+
+    QFile f(filename);
+    f.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in(&f);
+    while (!in.atEnd())
+    {
+        QString line = in.readLine();
+        // remove comment text
+        int icomment = line.indexOf("#", 0);
+        if(icomment >= 0) {
+            line.truncate(icomment);
+        }
+        // key=value pairs should be separated by ','
+        QStringList listLine = line.split(",",QString::SkipEmptyParts);
+        // check if there's at least one '=' in the list
+        if(listLine.size() == 0) continue;
+        if(listLine[0].indexOf("=",0) < 0) continue;
+
+        QStringList keyval=listLine[0].split("=");
+        assert(keyval.size() == 2);
+        QString firstkey = keyval[0].simplified();
+        if(firstkey == "FILE") {
+            int ieq = line.indexOf("=");
+            if(ieq > 0) {
+                runFileNames.append(line.remove(0,ieq+1).trimmed());
+            }
+            continue;
+        }
+    } // end while loop over lines
+    f.close();
+
+    // if no FILE= key-val pairs were found, this must be a regular parameter file.
+    if(runFileNames.size() < 1) runFileNames.append(filename);
+
+    ui->textBrowser->append(runFileNames.join("\n"));
+    if(runFileNames.size()>1)ui->loadfileNumber_button->setEnabled(true);
+    ui->listnumber_spinbox->setRange(0,(int)runFileNames.size()-1);
+    updateTimingPattern(runFileNames[0]);
+}
+
+double ControlGUI::get_time_of_last_event()
+{
+    double tlast = 0;
+    if(beamEnableStates.size() > 0)
+        if(beamEnableStates.last().time() > tlast) tlast = beamEnableStates.last().time();
+    if(cleanerStates.size() > 0)
+        if(cleanerStates.last().time() > tlast) tlast = cleanerStates.last().time();
+    if(gateValveStates.size() > 0)
+        if(gateValveStates.last().time() > tlast) tlast = gateValveStates.last().time();
+    if(trapdoorStates.size() > 0)
+        if(trapdoorStates.last().time() > tlast) tlast = trapdoorStates.last().time();
+    if(daggerPositions.size() > 0)
+        if(daggerPositions.last().time() > tlast) tlast = daggerPositions.last().time();
+    if(giantCleanerPositions.size() > 0)
+        if(giantCleanerPositions.last().time() > tlast) tlast = giantCleanerPositions.last().time();
+    if(butterflyStates.size() > 0)
+        if(butterflyStates.last().time() > tlast) tlast = butterflyStates.last().time();
+    return tlast;
+}
+
+void ControlGUI::updateTimingPattern(QString filename)
+{
+    beamEnableStates.clear();
+    cleanerStates.clear();
+    gateValveStates.clear();
+    trapdoorStates.clear();
+    daggerPositions.clear();
+    giantCleanerPositions.clear();
+    butterflyStates.clear();
+    
+    // variables to track dagger movement in the simple dagger cleaning
+    bool   dagger_up          = false;
+    double initial_dagger_pos = 0;
+    bool   cleaner_up         = false;
+    bool   counting           = false;
+    bool   holding            = false;
+    clean_time                = 0;
+    count_time                = 0;
+    deltat                    = 0;
+    
+    QFile f(filename);
+    f.open(QIODevice::ReadOnly | QIODevice::Text);
+
+    if(!f.isOpen()) {
+        ui->textBrowser->append(QString("File not found: ") + filename);
+        return;
+    }
+
+    QTextStream in(&f);
+    while (!in.atEnd())
+    {
+        QString line = in.readLine();
+        // remove comment text
+        int icomment = line.indexOf("#", 0);
+        if(icomment >= 0) {
+            line.truncate(icomment);
+        }
+        // key=value pairs should be separated by ','
+        QStringList listLine = line.split(",",QString::SkipEmptyParts);
+        // check if there's at least one '=' in the list
+        if(listLine.size() == 0) continue;
+        if(listLine[0].indexOf("=",0) < 0) continue;
+        double t_line = 0; // elapsed time of this line
+        double itime = 0;
+        QStringList keyval=listLine[0].split("=");
+        assert(keyval.size() == 2);
+        QString firstkey = keyval[0].simplified();
+
+        if(firstkey == "T") {
+            t_line = keyval[1].toDouble();
+            itime = t_line;
+            if(holding){
+                if(deltat == 0) {
+                    deltat =  t_line - clean_time;
+                    deltat -= (t_line - clean_time)*factor;
+                }
+                t_line += deltat;
+            }
+            if(DEBUG_BLIND == 1)
+                printf(" State of Dagger up : %d at time %f \n",dagger_up,t_line);
+        } else if(firstkey == "COMMENT") {
+            int ieq = line.indexOf("=");
+            if(ieq > 0) {
+                ui->commentLineEdit->setText(line.remove(0,ieq+1).trimmed());
+            } else {
+                ui->textBrowser->append("Malformed COMMENT line");
+            }
+            continue;
+        } else {
+            ui->textBrowser->append("Error parsing file: first key-value pair per non-COMMENT line must be T=[time]");
+            continue;
+        }
+        
+        for(int ikeyval=1; ikeyval < listLine.size(); ikeyval++) {
+
+            QStringList keyval = listLine[ikeyval].split("=");
+            assert(keyval.size() >= 2);
+            QString key = keyval[0].simplified(); // remove whitespace
+            QString valstr = keyval[1].simplified(); // remove whitespace
+
+            if(key == "TRAPDOOR") {
+                trapdoorStates.append(ControlEvent<QString>(t_line, valstr,itime));
+            } else if(key == "DAGGER") {
+                daggerPositions.append(ControlEvent<double>(t_line, valstr.toDouble(),itime));
+                if(DEBUG_BLIND==1){
+                    printf("dagger current position and initial: %f  \t %f \n",
+                           valstr.toDouble(),initial_dagger_pos);
+                }
+                if( !dagger_up && initial_dagger_pos == 0){
+                    initial_dagger_pos = valstr.toDouble();
+                }else if( !dagger_up && initial_dagger_pos != 0 &&
+                          valstr.toDouble() > initial_dagger_pos){
+                    dagger_up      = true;
+                    dagger_up_time = t_line;
+                } /*else if(dagger_up && valstr.toDouble() <= initial_dagger_pos
+                          && !counting){
+                    count_time = t_line;  changed for 2016-2017 blinding scheme
+                    counting = true;
+                }*/
+            } else if(key == "GATEVALVE") {
+                bool state = false; // closed
+                if(valstr == "OPEN") state = true;
+                if(DEBUG_BLIND == 1)printf("GateValve timing: %f  state : %d \n",t_line,state);
+                gateValveStates.append(ControlEvent<bool>(t_line, state,itime));
+            } else if(key == "BEAM") {
+                bool state = false; // beam off
+                if(valstr == "ON") state = true;
+                beamEnableStates.append(ControlEvent<bool>(t_line, state,itime));
+            } else if(key == "BUTTERFLY") {
+                bool state = false; // butterfly open
+                if(valstr == "CLOSED") state = true;
+                if(DEBUG_BLIND == 1) printf("Butterfly timing: %f state : %d \n",t_line,state);
+                butterflyStates.append(ControlEvent<bool>(t_line, state,itime));
+            } else if(key == "CLEANER") {
+                bool state = false; // cleaner up
+                if(DEBUG_BLIND == 1)printf("Cleaner timing: %f  state : %d \n",t_line,state);
+                if(valstr == "DOWN"){
+                    state = true;
+                }// else if( valstr == "UP" && t_line != 0){
+                  //  cleaner_up = true;
+                  //  clean_time = t_line;  //removed 2016 for the new blinding method using HOLD , COUNT keys
+               // }
+                cleanerStates.append(ControlEvent<bool>(t_line, state,itime));
+            } else if(key == "GIANTCLEANER") {
+                giantCleanerPositions.append(ControlEvent<double>(t_line, valstr.toDouble(),itime));
+            } else if(key == "HOLD"){
+                holding = true;
+                clean_time = t_line;
+            } else if(key == "COUNT"){
+                count_time = t_line;
+                counting = true;
+            }
+
+        } // end for ikeyval
+
+    }
+
+    f.close();
+
+    if(DEBUG_BLIND==1)
+        printf("cleaning time : %f and counting time %f\n",clean_time,count_time);
+
+    ui->cyclePeriodLCD->display(get_time_of_last_event()-deltat);
+
+    updatePlot();
+    ui->startButton->setEnabled(true);
+}
+
+double get_double_rep(bool st)
+{
+    return st ? 1. : 0.;
+}
+
+double get_double_rep(double st)
+{
+    return st;
+}
+
+// FIXME: this is only for the TRAPDOOR. Should really make a trapdoor typedef.
+double get_double_rep(QString st)
+{
+    if((st == "HOLD") || (st == "UP")) {
+        return 1.;
+    } else {
+        return 0.;
+    }
+}
+
+template<typename statetype> void make_plot_arrays(QList<ControlEvent<statetype> > events,
+                                                   double offset, double amplitude, double xmax,
+                                                   QVector<double> &x, QVector<double> &y,double dt)
+{
+    x.clear();
+    y.clear();
+
+    if(events.size() < 1) return;
+
+    x.append(events.at(0).time());
+    statetype state = events.at(0).state();
+    y.append(offset + amplitude*get_double_rep(state));
+    for(int i=1; i < events.size(); i++) {
+        double time = events.at(i).time();
+        statetype newstate = events.at(i).state();
+	double ddt = (i>1) ? dt : 0;
+        x.append(time - 0.01 -ddt);
+        y.append(offset + amplitude*get_double_rep(state));
+        x.append(time + 0.01 -ddt);
+        y.append(offset + amplitude*get_double_rep(newstate));
+        state = newstate;
+    }
+    if(x.last() < xmax+dt) {
+        x.append(xmax+dt);
+        y.append(y.last());
+    }
+}
+
+void ControlGUI::updatePlot()
+{
+    ui->plot->clearPlottables();
+    ui->plot->legend->setVisible(true);
+
+    double xmin = 0.;
+    double xmax = ui->cyclePeriodLCD->value();
+    double time_span = xmax - xmin;
+//    xmin -= 0.05*time_span;
+//    xmax += 0.05*time_span;
+    ui->plot->xAxis->setRange(xmin, xmax);
+    ui->plot->yAxis->setRange(-0.1, 7.0);
+
+    QVector<double> x;
+    QVector<double> y;
+    QCPGraph *gr;
+    double offset;
+
+    offset = 6;
+    gr = ui->plot->addGraph();
+    gr->setPen(QPen(Qt::black));
+    gr->setName("Beam On");
+    make_plot_arrays(beamEnableStates, offset, 0.9, xmax, x, y,deltat);
+    gr->setData(x, y);
+
+    offset = 5;
+    gr = ui->plot->addGraph();
+    gr->setPen(QPen(Qt::blue));
+    gr->setName("Gate Valve Open");
+    make_plot_arrays(gateValveStates, offset, 0.9, xmax, x, y,deltat);
+    gr->setData(x, y);
+
+    offset = 4;
+    gr = ui->plot->addGraph();
+    gr->setPen(QPen(Qt::cyan));
+    gr->setName("Giant Cleaner Position (arb)");
+    make_plot_arrays(giantCleanerPositions, offset, 1./100000, xmax, x, y,deltat);
+    gr->setData(x, y);
+
+    offset = 3;
+    gr = ui->plot->addGraph();
+    gr->setPen(QPen(Qt::green));
+    gr->setName("Cleaner Down");
+    make_plot_arrays(cleanerStates, offset, 0.9, xmax, x, y,deltat);
+    gr->setData(x, y);
+
+    offset = 2;
+    gr = ui->plot->addGraph();
+    gr->setPen(QPen(Qt::darkYellow));
+    gr->setName("Butterfly Closed");
+    make_plot_arrays(butterflyStates, offset, 0.9, xmax, x, y,deltat);
+    gr->setData(x, y);
+
+    offset = 1;
+    gr = ui->plot->addGraph();
+    gr->setPen(QPen(Qt::red));
+    gr->setName("Trap Door Closed");
+    make_plot_arrays(trapdoorStates, offset, 0.9, xmax, x, y,deltat);
+    gr->setData(x, y);
+
+    offset = 0;
+    gr = ui->plot->addGraph();
+    gr->setPen(QPen(Qt::magenta));
+    gr->setName("Dagger Position (arb)");
+    make_plot_arrays(daggerPositions, offset, 1./550000, xmax, x, y,deltat);
+    gr->setData(x, y);
+
+    ui->plot->replot();
+}
+
+int ControlGUI::getDigitalInput(int channel)
+{
+    long state = 0;
+#if !TESTMODE
+    eDI(hDevice, 0, channel, &state);
+#endif
+    return int(state);
+}
+
+void ControlGUI::setDigitalOutput(int channel, bool state)
+{
+#if !TESTMODE
+    eDO(hDevice, 0, channel, state ? 1 : 0);
+#endif
+}
+
+void ControlGUI::emitTimingPulse()
+{
+    setDigitalOutput(kTimingCh, 1);
+    setDigitalOutput(kTimingCh, 0);
+}
+
+void ControlGUI::beamEnable_toggled(bool checked)
+{
+    setDigitalOutput(kBeamEnableCh, checked ? kBeamOn : !kBeamOn);
+    //emitTimingPulse(); legacy
+}
+
+void ControlGUI::gateValve_toggled(bool checked)
+{
+    setDigitalOutput(kGateValveCh, checked ? kGateValveOpen : !kGateValveOpen);
+    emitTimingPulse();
+}
+
+void ControlGUI::cleaner_toggled(bool checked)
+{
+    setDigitalOutput(kCleanerCh, checked ? kCleanerDown : !kCleanerDown);
+    emitTimingPulse();
+}
+
+void ControlGUI::butterfly_toggled(bool checked)
+{
+    setDigitalOutput(kButterflyCh, checked ? kButterflyClosed : !kButterflyClosed);
+    emitTimingPulse();
+}
+
+void ControlGUI::trapdoor_index_changed(int index)
+{
+    QString cmd = QString("SET ") + ui->trapdoorComboBox->itemText(index);
+   
+    double tsend = (double)(cycleTime.elapsed()/1000.);
+    zmq_send(socket_trapdoor, cmd.toLocal8Bit().data(), cmd.size(), 0);
+    double tsend1 = (double)(cycleTime.elapsed()/1000.);
+    emitTimingPulse();
+    double tsend2 = (double)(cycleTime.elapsed()/1000.);
+    int nbytes = zmq_recv(socket_trapdoor, trapdoor_recv_buffer, trapdoor_recv_buffer_size-1, 0);
+    assert(nbytes != -1);
+    trapdoor_recv_buffer[nbytes] = '\0'; // properly NULL terminate received string
+    double trecv = (double)(cycleTime.elapsed()/1000.);
+  //  printf("Timing difference : %f \n", trecv - tsend);
+//    printf("Time steps : %f \t %f \t %f \t %f \n ",tsend,tsend1,tsend2,trecv);
+    QString trapdoor_str(trapdoor_recv_buffer);
+    QStringList fields = trapdoor_str.split(" ");
+    if(fields.size() != 3) {
+        ui->textBrowser->append(QString("Invalid reply from trapdoor server: ") + trapdoor_str);
+    }
+    QString reply_state_str = fields[2];
+    int i_item = ui->trapdoorComboBox->findText(reply_state_str);
+    if(i_item < 0) {
+        ui->textBrowser->append("Problem setting trapdoor state");
+    }
+}
+
+void ControlGUI::dagger_button_pushed()
+{
+    QString cmd = QString("SET Z ") + QString::number(int(ui->daggerSpinBox->value()));
+    zmq_send(socket_dagger, cmd.toLocal8Bit().data(), cmd.size(), 0);
+    emitTimingPulse();
+    int nbytes = zmq_recv(socket_dagger, dagger_recv_buffer, dagger_recv_buffer_size-1, 0);
+    assert(nbytes != -1);
+    dagger_recv_buffer[nbytes] = '\0'; // properly NULL terminate received string
+    QString zdagger_str(dagger_recv_buffer);
+    QStringList fields = zdagger_str.split(" ");
+    if((fields.size() != 2) || (fields.at(0) != "Z")) {
+        ui->textBrowser->append(QString("Invalid reply from dagger server: ") + zdagger_str);
+    }
+    bool ok = false;
+    double val = fields[1].toDouble(&ok);
+    if(!ok) {
+        ui->textBrowser->append(QString("Problem getting dagger position from server: ") + zdagger_str);
+        ui->textBrowser->append(QString("z = %1").arg(val));
+        ui->textBrowser->append(fields[0]);
+        ui->textBrowser->append(fields[1]);
+    }
+    if(fabs(val - ui->daggerSpinBox->value()) > 2) {
+        ui->textBrowser->append("Dagger not set to requested position.");
+    }
+}
+
+void ControlGUI::giantCleaner_button_pushed()
+{
+    QString cmd = QString("SET Z ") + QString::number(int(ui->giantCleanerSpinBox->value()));
+    zmq_send(socket_giantCleaner, cmd.toLocal8Bit().data(), cmd.size(), 0);
+    emitTimingPulse();
+    int nbytes = zmq_recv(socket_giantCleaner, giantCleaner_recv_buffer, giantCleaner_recv_buffer_size-1, 0);
+    assert(nbytes != -1);
+    giantCleaner_recv_buffer[nbytes] = '\0'; // properly NULL terminate received string
+    QString zGiantCleaner_str(giantCleaner_recv_buffer);
+    QStringList fields = zGiantCleaner_str.split(" ");
+    if((fields.size() != 2) || (fields.at(0) != "Z")) {
+        ui->textBrowser->append(QString("Invalid reply from giant cleaner server: ") + zGiantCleaner_str);
+    }
+    bool ok = false;
+    double val = fields[1].toDouble(&ok);
+    if(!ok) {
+        ui->textBrowser->append(QString("Problem getting giant cleaner position from server: ") + zGiantCleaner_str);
+        ui->textBrowser->append(QString("z = %1").arg(val));
+        ui->textBrowser->append(fields[0]);
+        ui->textBrowser->append(fields[1]);
+    }
+    if(fabs(val - ui->giantCleanerSpinBox->value()) > 2) {
+        ui->textBrowser->append("Giant cleaner not set to requested position.");
+    }
+}
+
+void ControlGUI::enableChannelButtons(bool state)
+{
+    ui->beamEnableRadio->setEnabled(state);
+    ui->gateValveRadio->setEnabled(state);
+    ui->cleanerRadio->setEnabled(state);
+    ui->trapdoorComboBox->setEnabled(state);
+    ui->daggerPushButton->setEnabled(state);
+    ui->giantCleanerPushButton->setEnabled(state);
+    ui->openFileButton->setEnabled(state);
+}
+
+void ControlGUI::startButton_clicked(bool firstcall)
+{    
+    if(runFileNames.size() < 1) {
+        ui->textBrowser->append("No file loaded.");
+        return;
+    }
+
+    if(firstcall && !override_list) iStart = 0;
+    if(iStart < runFileNames.size()) {
+        updateTimingPattern(runFileNames.at(iStart));
+        ui->listnumber_spinbox->setValue(iStart); // update the list number
+    } else {
+        return;
+    }
+
+    enableChannelButtons(false);
+    ui->startButton->setEnabled(false);
+    ui->abortButton->setEnabled(true);
+
+    // Ask dagger_server.py to resend the velocity, acceleration, and deceleration
+    // settings to the motor controller. This might help prevent an accident if
+    // the motor controller was power cycled without restarting dagger_server.py.
+    reset_dagger_velacceldecel();
+
+    // Ask giantCleaner_server.py to resend the velocity, acceleration, and deceleration
+    // settings to the motor controller. This might help prevent an accident if
+    // the motor controller was power cycled without restarting giantCleaner_server.py.
+    reset_giantCleaner_velacceldecel();
+
+    progressLine->start->setCoords(0., -1.);
+    progressLine->end->setCoords(0., 5.);
+    progressLine->setVisible(true);
+    ui->plot->replot(); // refresh to plot to include the progress line
+
+    ui->textBrowser->append(QString("Waiting for start conditions..."));
+    waitForGoThenStart(true);
+}
+
+
+void ControlGUI::waitForGoThenStart(bool firstcall)
+{
+    static int prev_HmGX_state      = 1;
+    static bool midas_started       = false;
+    static bool beam_pre_enabled    = false;
+    static bool fastcom_daq_running = false;
+
+
+    if(firstcall) {
+        std::cout << "First waitForGoCall: " << QDateTime::currentMSecsSinceEpoch() << "\n";
+        midas_started       = false;
+        beam_pre_enabled    = false;
+        prev_HmGX_state     = 1;
+        fastcom_daq_running = false;
+    }
+
+    /*if(!midas_started) {
+        if(!(ui->startMidasCheckbox->isChecked())) {
+            midas_started = true;
+            waitForGoTimer->start(50);
+            return;
+        }
+
+        int hmgx_state = getDigitalInput(kHmGXSignal);
+        bool pos_edge_HmGX = !(ui->waitForHmGXCheckBox->isChecked())
+                || ( (prev_HmGX_state == 0) && (hmgx_state == 1) );
+        prev_HmGX_state = hmgx_state;
+
+        if(pos_edge_HmGX){
+            if(ui->startMidasCheckbox->isChecked()){
+                //midas_started = start_midas();
+                std::cout << "First pos_edge_HmGX: " << QDateTime::currentMSecsSinceEpoch() << std::endl;
+                midas_started = start_robs_daq();
+                std::cout << "Finished arming DAQ: " << QDateTime::currentMSecsSinceEpoch() << std::endl;
+                doNextBeamTransition(true);
+                std::cout << "Pre-Enabled Beam: " << QDateTime::currentMSecsSinceEpoch() << std::endl;
+            }else
+                midas_started = true;
+            waitForGoTimer->start(1000);
+        } else {
+            waitForGoTimer->start(50);
+        }
+        return;
+    }*/
+
+    if(!midas_started) {
+
+        // -----------------------------------------------------
+        // If we aren't starting midas with the DAQ then set the
+        // midas_started to true and set a 50 ms timer to call
+        // the function again and then return. If the slow control
+        // is controling the DAQ then attempt to start the daq with
+        // the start_robs_daq function.  Then start a 1000 ms timer
+        // and recall this function. If the DAQ doesn't start it
+        // looks like this function will attempt to start the daq every s.
+
+        if(!(ui->startMidasCheckbox->isChecked())) {
+            midas_started = true;
+            waitForGoTimer->start(50);
+            return;
+        } else if(ui->startMidasCheckbox->isChecked()){
+			//midas_started = start_midas();
+			midas_started = start_robs_daq();
+        } //else  // not sure what the point of this else statement is.
+        //	midas_started = true;
+
+		waitForGoTimer->start(1000);
+
+		return;
+    }
+
+    // ----------------------------------------------------------------------
+    // Once the midas_start flag is set the fastcom_daq_running check happens.
+    // if the wait for go box is checked then the kGoLine is
+   /* if(!fastcom_daq_running) {
+        if(ui->waitForGoCheckbox->isChecked()) {
+            fastcom_daq_running = (getDigitalInput(kGoLine) == kDaqRunning);
+        } else {
+            fastcom_daq_running = true;
+        }
+        waitForGoTimer->start(50);
+        return;
+    }  for the MPA3 control not need for ucntau */
+    
+    // If we aren't keying off the HmGX then just start the cycle.
+
+    if(!(ui->waitForHmGXCheckBox->isChecked())) {
+		waitForGoTimer->stop();
+        startTheCycle();
+        return;
+    }
+
+    // if we are starting on HmGX----
+		
+    int hmgx_state = getDigitalInput(kHmGXSignal); // okay check the hmgx input
+    // look for the rising and falling edges of
+
+    bool pos_edge_HmGX = ( (prev_HmGX_state == 0) && (hmgx_state == 1) );  // on the first call this is (false && check)
+         // !(ui->waitForHmGXCheckBox->isChecked()) // statement is by definition false, since waitForHmGXCheckBox must be checked to get here.
+         //   || ( (prev_HmGX_state == 0) && (hmgx_state == 1) );
+
+    bool neg_edge_HmGX = ( (prev_HmGX_state == 1) && (hmgx_state == 0) );  // on first call this is (true && check)
+            // !(ui->waitForHmGXCheckBox->isChecked()) // same as above...
+            //|| ( (prev_HmGX_state == 1) && (hmgx_state == 0) );
+
+    prev_HmGX_state = hmgx_state; // for subsequent calls
+    
+    if(pos_edge_HmGX && !(beam_pre_enabled)){//neg_edge_HmGX /*&& midas_started*/) { // again odd to ask if midas_start is true is you'll never get here if its false.
+        std::cout << "First neg_edge_HmGX: " << QDateTime::currentMSecsSinceEpoch() << std::endl;
+        std::cout << "----------------------------------- " << std::endl;
+        //doNextBeamTransition(true);
+        QThread::sleep(1);
+        ui->beamEnableRadio->setChecked(false); //radio button is beam veto, so set veto to false.
+		beam_pre_enabled = true;
+		waitForGoTimer->start(50); // check every 50 ms
+        return;
+	}
+    else if(pos_edge_HmGX && beam_pre_enabled) {
+		std::cout << "Second pos_edge_HmGX: " << QDateTime::currentMSecsSinceEpoch() << std::endl;
+		std::cout << "----------------------------------- " << std::endl;
+        waitForGoTimer->stop();
+        startTheCycle();
+    } else {
+        waitForGoTimer->start(50); // check every 50 ms
+        return;
+    }
+}
+
+bool ControlGUI::start_robs_daq()
+{
+    QString comment = ui->commentLineEdit->text();
+    std::fstream fcomment;
+    fcomment.open("/home/daq/daq_dev/.run_comment.txt",std::fstream::out);
+    fcomment << comment.toStdString().data();
+    fcomment.close();
+    //-----------------------------------------------------------------------------
+
+    int nbytes =0;
+    bool not_ready = true;
+    do{
+        // add in a check to see if all daq hardware servers are ready.
+        zmq_send(socket_daq,"sitrep",6,0);
+
+        nbytes = zmq_recv(socket_daq, daq_recv_buffer, daq_recv_buffer_size-1, 0);
+        daq_recv_buffer[nbytes] = '\0';
+
+        if(nbytes == -1) {
+            printf("Encountered Error! \nErrno:%d\n%s\n", errno, zmq_strerror(errno));
+            return false;
+        }
+        std::cout << "Recieved : " << daq_recv_buffer << std::endl;
+        if(strcmp("ready",daq_recv_buffer)==0)
+            not_ready=false;
+        else
+            QThread::sleep(1);
+    }while(not_ready);
+
+
+    zmq_send(socket_daq, "start", 5, 0);
+    nbytes = zmq_recv(socket_daq, daq_recv_buffer, daq_recv_buffer_size-1, 0);
+    if(nbytes == -1) {
+    	printf("Encountered Error! \nErrno:%d\n%s\n", errno, zmq_strerror(errno));
+    	return false;
+    }
+
+    daq_recv_buffer[nbytes] = '\0';
+
+    char *seg;
+    if(strcmp("stop",daq_recv_buffer) !=0){
+        seg = strtok(daq_recv_buffer," ");
+    }
+    char cmd[25];
+    char number[25];
+
+    if(seg !=NULL && strcmp("starting",seg) == 0){
+           strcpy(cmd,seg);
+           seg = strtok(NULL," ");
+           strcpy(number,seg);
+    }
+    run_number = (int)atoi(number);
+
+    if(BLIND == 1)
+        setdb(clean_time,count_time);
+    else if(BLIND == 0)
+        setdb(0,0);
+
+    std::cout  << run_number << std::endl;
+
+    make_elog_post();
+
+    if(!strcmp("starting", (const char*)daq_recv_buffer)) {
+        return true;
+    }
+    return false;
+}
+
+bool ControlGUI::stop_robs_daq()
+{
+    zmq_send(socket_daq, "stop", 4, 0);
+    int nbytes = zmq_recv(socket_daq, daq_recv_buffer, daq_recv_buffer_size-1, 0);
+    if(nbytes == -1) {
+		std::cout << "DAQ not found!!!"<< std::endl;
+		daq_recv_buffer[0] = '\0';
+		zmq_close(socket_daq);
+		socket_daq = zmq_socket(context,ZMQ_REQ);
+		int timeout = 5000;
+		zmq_setsockopt(socket_daq,ZMQ_RCVTIMEO,&timeout, sizeof (timeout));
+		int rc = zmq_connect(socket_daq, "ipc:///tmp/zeromq_daq");
+		assert(rc == 0);
+		return false;
+	}
+    // assert(nbytes != -1);
+    daq_recv_buffer[nbytes] = '\0';
+    QThread::sleep(15);
+    if(!strcmp("stopping", (const char*)daq_recv_buffer)) {
+        return true;
+    }
+    return false;
+}
+
+bool ControlGUI::start_midas()
+{
+    QProcess process(this);
+    QStringList args;
+    // no longer in use.
+
+    args << "-e" << "Default"
+         << "-c" << "ls Runinfo/State";
+    process.start("odbedit", args);
+    process.waitForFinished();
+    QString midas_run_state= process.readAllStandardOutput().simplified();
+    ui->textBrowser->append("MIDAS run state:");
+    ui->textBrowser->append(midas_run_state);
+    int state = -1;
+    QStringList fields = midas_run_state.split(" ");
+    if(fields.size() == 2) {
+        state = fields.last().toInt();
+    }
+
+    args.clear();
+    args << "-e" << "Default"
+         << "-c" << "ls \"Runinfo/Transition in progress\"";
+    process.start("odbedit", args);
+    process.waitForFinished();
+    QString midas_transition_in_progress = process.readAllStandardOutput().simplified();
+    ui->textBrowser->append(midas_transition_in_progress);
+    fields = midas_transition_in_progress.split(" ");
+    int transition_in_progress = -1;
+    if(fields.size() == 4) {
+        transition_in_progress = fields.last().toInt();
+    }
+
+    ui->textBrowser->append("state=" + QString::number(state)
+                            + ", transition=" + QString::number(transition_in_progress));
+    if((state != 1) || (transition_in_progress != 0)) {
+        ui->textBrowser->append("MIDAS appears to be running or transitioning. Waiting 1s before checking again...");
+        return false;
+    }
+
+
+    QString comment = ui->commentLineEdit->text();
+
+    args.clear();
+    int total_run_duration = int(ui->cyclePeriodLCD->value() + 10.5-deltat);
+    args << QString().setNum(total_run_duration)
+             << QString("\"" + comment + "\"");
+   // qDebug() << args;
+
+#if !TESTMODE
+    process.start(kControlDir + QString("start_script"), args);
+    process.waitForFinished();
+    QThread::sleep(2);
+    make_elog_post();
+#endif
+    return true;
+}
+
+bool ControlGUI::setdb(double ft,double ct)
+{
+    /*QProcess process(this);
+    QStringList args;  // updated for 2016-2017 runs
+    args << QString().setNum(ct,'g',10) << QString().setNum(ft,'g',10);
+    if(DEBUG_BLIND) printf(" Cleaner : %f Dagger : %f \n",ct,ft);   
+    process.start(kControlDir + QString("db_script"),args);
+    process.waitForFinished();*/
+    std::fstream fout;
+    fout.open("/home/daq/.stuff/.collection_2016.txt",std::fstream::out | std::fstream::app);
+    fout << run_number << "\t" <<  std::setprecision(10) << ct;
+    fout << "\t" <<  std::setprecision(10) << ft << "\n";
+    fout.close();
+
+    QThread::sleep(2);
+    if(DEBUG_BLIND) printf(" Cleaner : %f Dagger : %f \n",ct,ft);
+    return true;
+}
+
+void write_bool_event_list(QTextStream &out, QList<ControlEvent<bool> > events)
+{
+    for(int i=0; i < events.size(); i++) {
+        out << " (" << qSetRealNumberPrecision(6) << events.at(i).bltime() << ", ";
+        out << (events.at(i).state() ? "true" : "false") << ")";
+    }
+    out << endl;
+}
+
+void ControlGUI::make_elog_post()
+{
+    QProcess process(this);
+    QStringList args;
+
+    QFile fparams(kControlDir + QString("tmp/runparams.txt"));
+    if(fparams.open(QFile::WriteOnly | QFile::Truncate)) {
+        QTextStream out(&fparams);
+        out << "Run Number : " << this->run_number << endl;
+        out << "Comment : " << ui->commentLineEdit->text() << endl;
+        out << "Beam Veto Events (time, new state) :";
+        write_bool_event_list(out, beamEnableStates);
+        out << "Cleaner Down Events (time, new state) :";
+        write_bool_event_list(out, cleanerStates);
+        out << "Gate Valve Open Events (time, new state) :";
+        write_bool_event_list(out, gateValveStates);
+        out << "Butterfly Valve Closed Events (time, new state) :";
+        write_bool_event_list(out, butterflyStates);
+
+        out << "Trapdoor Events (time, new state) :";
+        for(int i=0; i < trapdoorStates.size(); i++) {
+            out << " (" << qSetRealNumberPrecision(6) << trapdoorStates.at(i).bltime() << ", ";
+            out << trapdoorStates.at(i).state() << ")";
+        }
+        out << endl;
+
+        out << "Dagger Position Events (time, new position in steps) :";
+        for(int i=0; i < daggerPositions.size(); i++) {
+
+                out << " (" << qSetRealNumberPrecision(6) << daggerPositions.at(i).bltime() << ", ";
+                out << qSetRealNumberPrecision(6) << daggerPositions.at(i).state() << ")";
+        }
+        out << endl;
+
+        out << "Giant Cleaner Position Events (time, new position in steps) :";
+        for(int i=0; i < giantCleanerPositions.size(); i++) {
+
+                out << " (" << qSetRealNumberPrecision(6) << giantCleanerPositions.at(i).bltime() << ", ";
+                out << qSetRealNumberPrecision(6) << giantCleanerPositions.at(i).state() << ")";
+
+        }
+        out << endl;
+
+        out << "------------------------------------" << endl;
+    }
+    fparams.close();
+
+    if(!(ui->plot->savePng(kControlDir + QString("tmp/rundiagram.png")))) {
+        ui->textBrowser->append("Failed to save rundiagram.png");
+    }
+
+    args << kControlDir + QString("tmp/runparams.txt");
+    args << kControlDir + QString("tmp/rundiagram.png");
+
+#if !TESTMODE
+    qDebug() << kControlDir + QString("controlpost") << args;
+    process.start(kControlDir + QString("controlpost"), args);
+    process.waitForFinished();
+#endif
+}
+
+void ControlGUI::startTheCycle()
+{
+	
+
+	
+    ui->textBrowser->append(QString("Starting the cycle."));
+    cycleTime.start();
+    elapsedTimer->start(1000); // update displayed elapsed time every 1 sec
+    setDigitalOutput(kDaqTriggerCh, 1); // set the start bit for the MIDAS DAQ
+
+    doNextBeamTransition(true);
+    doNextGateValveTransition(true);
+    doNextCleanerTransition(true);
+    doNextButterflyTransition(true);
+    doNextTrapdoorTransition(true);
+    doNextDaggerTransition(true);
+    doNextGiantCleanerTransition(true);
+
+    QThread::sleep(5);
+    zmq_send(socket_daq, "plot", 4, 0);
+    int nbytes = zmq_recv(socket_daq, daq_recv_buffer, daq_recv_buffer_size-1, 0);
+
+    if(nbytes <= 0){
+        std::cout << "Unable to start DAQ system" << std::endl;
+        return;
+    }
+    
+}
+
+// FIXME: should use templates or something for all of these...
+void ControlGUI::doNextBeamTransition(bool firstcall)
+{
+    if(firstcall) iBeamTransition = 0;  // set the beam transition counter to 0
+
+    if(iBeamTransition < 0) return;
+
+    if(iBeamTransition < beamEnableStates.size()) {
+        if(DEBUG_BLIND)std::cout << "Beam enable time : " << cycleTime.elapsed() << std::endl;
+        ui->beamEnableRadio->setChecked(beamEnableStates.at(iBeamTransition).state());
+        iBeamTransition++;
+
+        // Check if this is not the last transition of the cycle
+        if(iBeamTransition < beamEnableStates.size()) {
+            double next_interval = beamEnableStates.at(iBeamTransition).time() - beamEnableStates.at(iBeamTransition - 1).time();
+            beamTransitionTimer->start(1000*next_interval);
+        } else {
+            iBeamTransition = -1;
+        }
+    } else {
+        iBeamTransition = -1;
+    }
+}
+
+void ControlGUI::doNextGateValveTransition(bool firstcall)
+{
+    if(firstcall) iGateValveTransition = 0;
+
+    if(iGateValveTransition < 0) return;
+
+    if(iGateValveTransition < gateValveStates.size()) {
+        if(DEBUG_BLIND)std::cout << "GV movement time : " << cycleTime.elapsed() << std::endl;
+        ui->gateValveRadio->setChecked(gateValveStates.at(iGateValveTransition).state());
+        iGateValveTransition++;
+
+        // Check if this is not the last transition of the cycle
+        if(iGateValveTransition < gateValveStates.size()) {
+            double next_interval = gateValveStates.at(iGateValveTransition).time() - gateValveStates.at(iGateValveTransition - 1).time();
+            gateValveTransitionTimer->start(1000*next_interval);
+        } else {
+            iGateValveTransition = -1;
+        }
+    } else {
+        iGateValveTransition = -1;
+    }
+}
+
+void ControlGUI::doNextCleanerTransition(bool firstcall)
+{
+    if(firstcall) iCleanerTransition = 0;
+
+    if(iCleanerTransition < 0) return;
+
+    if(iCleanerTransition < cleanerStates.size()) {
+        ui->cleanerRadio->setChecked(cleanerStates.at(iCleanerTransition).state());
+        iCleanerTransition++;
+
+        // Check if this is not the last transition of the cycle
+        if(iCleanerTransition < cleanerStates.size()) {
+            double next_interval = cleanerStates.at(iCleanerTransition).time() - cleanerStates.at(iCleanerTransition - 1).time();
+            cleanerTransitionTimer->start(1000*next_interval);
+        } else {
+            iCleanerTransition = -1;
+        }
+    } else {
+        iCleanerTransition = -1;
+    }
+}
+
+void ControlGUI::doNextButterflyTransition(bool firstcall)
+{
+    if(firstcall) iButterflyTransition = 0;
+
+    if(iButterflyTransition < 0) return;
+
+    if(iButterflyTransition < butterflyStates.size()) {
+        ui->butterflyRadio->setChecked(butterflyStates.at(iButterflyTransition).state());
+        iButterflyTransition++;
+
+        // Check if this is not the last transition of the cycle
+        if(iButterflyTransition < butterflyStates.size()) {
+            double next_interval = butterflyStates.at(iButterflyTransition).time() - butterflyStates.at(iButterflyTransition - 1).time();
+            butterflyTransitionTimer->start(1000*next_interval);
+        } else {
+            iButterflyTransition = -1;
+        }
+    } else {
+        iButterflyTransition = -1;
+    }
+}
+
+void ControlGUI::doNextTrapdoorTransition(bool firstcall)
+{
+    if(firstcall) iTrapdoorTransition = 0;
+
+    if(iTrapdoorTransition < 0) return;
+
+    if(iTrapdoorTransition < trapdoorStates.size()) {
+        if(DEBUG_BLIND)std::cout << "Trap door movement time : " << cycleTime.elapsed() << std::endl;
+        int i_item = 
+            ui->trapdoorComboBox->findText(trapdoorStates.at(iTrapdoorTransition).state());
+        int prev_i_item = ui->trapdoorComboBox->currentIndex();
+        ui->trapdoorComboBox->setCurrentIndex(i_item);
+        if(i_item == prev_i_item) { // currentIndexChanged signal is not emitted in this case
+            trapdoor_index_changed(i_item); // call the slot directly in this case
+        }
+        iTrapdoorTransition++;
+
+        // Check if this is not the last transition of the cycle
+        if(iTrapdoorTransition < trapdoorStates.size()) {
+            double next_interval = trapdoorStates.at(iTrapdoorTransition).time() -
+                trapdoorStates.at(iTrapdoorTransition - 1).time();
+            trapdoorTransitionTimer->start(1000*next_interval);
+        } else {
+            iTrapdoorTransition = -1;
+        }
+    } else {
+        iTrapdoorTransition = -1;
+    }
+}
+
+void ControlGUI::doNextDaggerTransition(bool firstcall)
+{
+    if(firstcall) iDaggerTransition = 0;
+
+    if(iDaggerTransition < 0) return;
+
+    if(iDaggerTransition < daggerPositions.size()) {
+        if(DEBUG_BLIND) std::cout << "Dagger movement time : " << cycleTime.elapsed() << std::endl;
+        ui->daggerSpinBox->setValue(daggerPositions.at(iDaggerTransition).state());
+        dagger_button_pushed();
+        iDaggerTransition++;
+
+        // Check if this is not the last transition of the cycle
+        if(iDaggerTransition < daggerPositions.size()) {
+            double next_interval = daggerPositions.at(iDaggerTransition).time() - daggerPositions.at(iDaggerTransition - 1).time();
+           if(DEBUG_BLIND) std::cout << "Next dagger transition in : " << next_interval*1000 << std::endl;
+            daggerTransitionTimer->start((int)(1000.*next_interval));
+        } else {
+            iDaggerTransition = -1;
+        }
+    } else {
+        iDaggerTransition = -1;
+    }
+}
+
+void ControlGUI::doNextGiantCleanerTransition(bool firstcall)
+{
+    if(firstcall) iGiantCleanerTransition = 0;
+
+    if(iGiantCleanerTransition < 0) return;
+
+    if(iGiantCleanerTransition < giantCleanerPositions.size()) {
+        ui->giantCleanerSpinBox->setValue(giantCleanerPositions.at(iGiantCleanerTransition).state());
+        giantCleaner_button_pushed();
+        iGiantCleanerTransition++;
+
+        // Check if this is not the last transition of the cycle
+        if(iGiantCleanerTransition < giantCleanerPositions.size()) {
+            double next_interval = giantCleanerPositions.at(iGiantCleanerTransition).time() - giantCleanerPositions.at(iGiantCleanerTransition - 1).time();
+            giantCleanerTransitionTimer->start(1000*next_interval);
+        } else {
+            iGiantCleanerTransition = -1;
+        }
+    } else {
+        iGiantCleanerTransition = -1;
+    }
+}
+
+void ControlGUI::updateElapsedTime()
+{
+    double elapsed = double(cycleTime.elapsed())/1000;
+    if(elapsed > clean_time && elapsed < count_time){
+       elapsed = clean_time + (elapsed-clean_time)*factor;
+    } else if( elapsed >= count_time){
+       elapsed = clean_time + (count_time-clean_time)*factor 
+                 + (elapsed - count_time);
+    }
+
+    ui->elapsedTimeLCD->display(int(elapsed + 0.5)); // rounded to nearest sec
+    progressLine->start->setCoords(elapsed, -1.);
+    progressLine->end->setCoords(elapsed, 7.);
+    ui->plot->replot();
+
+    // check if all channels are done
+    bool all_done = (iBeamTransition < 0)
+                 && (iGateValveTransition < 0)
+                 && (iTrapdoorTransition < 0)
+                 && (iCleanerTransition < 0)
+                 && (iButterflyTransition < 0)
+                 && (iDaggerTransition < 0)
+                 && (iGiantCleanerTransition < 0);
+    if(all_done) stopTheCycle();
+}
+
+void ControlGUI::abortButton_clicked()
+{
+    ui->textBrowser->append("Aborting the run sequence");
+    stopTheCycle(true);
+}
+
+void ControlGUI::stopTheCycle(bool abort_run)
+{
+
+    long configIO = 1;
+    long state;
+    //eDI(hDevice, configIO, kHmGXSignal, &state);
+    eDI(hDevice, configIO, kGoLine, &state);
+    elapsedTimer->stop();
+
+    ui->textBrowser->append(QString("Stopping the cycle."));
+    waitForGoTimer->stop(); // just in case it's running
+    beamTransitionTimer->stop();
+    gateValveTransitionTimer->stop();
+    cleanerTransitionTimer->stop();
+    butterflyTransitionTimer->stop();
+    trapdoorTransitionTimer->stop();
+    daggerTransitionTimer->stop();
+    giantCleanerTransitionTimer->stop();
+    ui->elapsedTimeLCD->display(0);
+    progressLine->setVisible(false);
+    ui->plot->replot(); // refresh the plot to hide the progress line
+    enableChannelButtons(true);
+    ui->abortButton->setEnabled(false);
+    ui->startButton->setEnabled(true);
+
+    // Clear the output bit for MIDAS start
+    setDigitalOutput(kDaqTriggerCh, 0);
+
+    if(ui->startMidasCheckbox->isChecked())
+        //midas_started = start_midas();
+        bool stopped = stop_robs_daq();
+
+    if(!abort_run && !ui->stopAfterThisRunCheckBox->isChecked() && (iStart < runFileNames.size() - 1)) {
+        iStart++;
+        // FIXME: add a delay before starting the next cycle?
+        startButton_clicked(false);
+        override_list=false;
+    }
+}
+
+void ControlGUI::get_midas_odb()
+{
+    std::fstream fin;
+    fin.open("/home/daq/.stuff/.daq_parameters_2016.txt",std::fstream::in);
+    double thing1;
+    
+    fin >> thing1;
+    factor = (BLIND == 1) ? thing1 : 1.0;
+
+    fin.close();
+}
+
+void ControlGUI::on_loadfileNumber_button_clicked()
+{
+    int nlist = ui->listnumber_spinbox->value();
+    iStart  = nlist;
+    updateTimingPattern(runFileNames[iStart]);
+    override_list = true;
+
+}

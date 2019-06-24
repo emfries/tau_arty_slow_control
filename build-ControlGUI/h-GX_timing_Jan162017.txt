@@ -1,0 +1,380 @@
+Getting trapdoor state from server...Done.
+First waitForGoCall: 1484474807021
+First pos_edge_HmGX: 1484474810377
+2150
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484474816602
+Pre-Enabled Beam: 1484474816603
+Second pos_edge_HmGX: 1484474821226
+----------------------------------- 
+First waitForGoCall: 1484475659414
+First pos_edge_HmGX: 1484475664076
+2151
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484475670307
+Pre-Enabled Beam: 1484475670307
+Second pos_edge_HmGX: 1484475674876
+----------------------------------- 
+First waitForGoCall: 1484477405657
+First pos_edge_HmGX: 1484477414376
+2152
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484477420202
+Pre-Enabled Beam: 1484477420203
+Second pos_edge_HmGX: 1484477425177
+----------------------------------- 
+First waitForGoCall: 1484478264140
+First pos_edge_HmGX: 1484478268227
+2153
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484478274504
+Pre-Enabled Beam: 1484478274505
+Second pos_edge_HmGX: 1484478279027
+----------------------------------- 
+First waitForGoCall: 1484480008768
+First pos_edge_HmGX: 1484480018376
+2154
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484480024058
+Pre-Enabled Beam: 1484480024059
+Second pos_edge_HmGX: 1484480029176
+----------------------------------- 
+First waitForGoCall: 1484480868480
+First pos_edge_HmGX: 1484480871827
+2155
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484480877688
+Pre-Enabled Beam: 1484480877689
+Second pos_edge_HmGX: 1484480882626
+----------------------------------- 
+First waitForGoCall: 1484482613110
+First pos_edge_HmGX: 1484482613215
+2156
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484482620163
+Pre-Enabled Beam: 1484482620163
+Second pos_edge_HmGX: 1484482624076
+----------------------------------- 
+First waitForGoCall: 1484483463491
+First pos_edge_HmGX: 1484483466777
+2157
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484483472696
+Pre-Enabled Beam: 1484483472696
+Second pos_edge_HmGX: 1484483477577
+----------------------------------- 
+First waitForGoCall: 1484485273974
+First pos_edge_HmGX: 1484485283376
+2158
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484485289350
+Pre-Enabled Beam: 1484485289350
+Second pos_edge_HmGX: 1484485294176
+----------------------------------- 
+First waitForGoCall: 1484487424106
+First pos_edge_HmGX: 1484487431177
+2159
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484487437683
+Pre-Enabled Beam: 1484487437683
+Second pos_edge_HmGX: 1484487442076
+----------------------------------- 
+First waitForGoCall: 1484488280744
+First pos_edge_HmGX: 1484488288927
+2160
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484488295059
+Pre-Enabled Beam: 1484488295059
+Second pos_edge_HmGX: 1484488299827
+----------------------------------- 
+First waitForGoCall: 1484490029987
+First pos_edge_HmGX: 1484490039276
+2161
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484490045279
+Pre-Enabled Beam: 1484490045279
+Second pos_edge_HmGX: 1484490050126
+----------------------------------- 
+First waitForGoCall: 1484490888807
+First pos_edge_HmGX: 1484490898326
+2162
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484490904322
+Pre-Enabled Beam: 1484490904322
+Second pos_edge_HmGX: 1484490909177
+----------------------------------- 
+First waitForGoCall: 1484491197996
+First pos_edge_HmGX: 1484491202576
+2163
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484491209394
+Pre-Enabled Beam: 1484491209398
+Second pos_edge_HmGX: 1484491213477
+----------------------------------- 
+First waitForGoCall: 1484492943760
+First pos_edge_HmGX: 1484492951026
+2164
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484492957468
+Pre-Enabled Beam: 1484492957468
+Second pos_edge_HmGX: 1484492961876
+----------------------------------- 
+First waitForGoCall: 1484493801348
+First pos_edge_HmGX: 1484493808377
+2165
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484493814005
+Pre-Enabled Beam: 1484493814005
+Second pos_edge_HmGX: 1484493819226
+----------------------------------- 
+First waitForGoCall: 1484495549433
+First pos_edge_HmGX: 1484495556926
+2166
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484495562591
+Pre-Enabled Beam: 1484495562591
+Second pos_edge_HmGX: 1484495567826
+----------------------------------- 
+First waitForGoCall: 1484496406706
+First pos_edge_HmGX: 1484496417377
+2167
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484496423249
+Pre-Enabled Beam: 1484496423249
+Second pos_edge_HmGX: 1484496428227
+----------------------------------- 
+First waitForGoCall: 1484501999975
+First pos_edge_HmGX: 1484502004626
+2176
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484502011377
+Pre-Enabled Beam: 1484502011378
+Second pos_edge_HmGX: 1484502015476
+----------------------------------- 
+First waitForGoCall: 1484502853576
+First pos_edge_HmGX: 1484502854326
+2177
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484502861159
+Pre-Enabled Beam: 1484502861159
+Second pos_edge_HmGX: 1484502865226
+----------------------------------- 
+First waitForGoCall: 1484504595614
+First pos_edge_HmGX: 1484504596126
+2178
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484504602717
+Pre-Enabled Beam: 1484504602717
+Second pos_edge_HmGX: 1484504606976
+----------------------------------- 
+First waitForGoCall: 1484505445503
+First pos_edge_HmGX: 1484505445764
+Encountered Error! 
+Errno:11
+Resource temporarily unavailable
+ControlGUI: ../ControlGUI/controlgui.cpp:878: bool ControlGUI::start_robs_daq(): Assertion `nbytes != -1' failed.
+Aborted (core dumped)
+daq@ucntau-daq:~/TauControl/build-ControlGUI$ ./ControlGUI
+Getting dagger position from server...Done.
+Getting giant cleaner position from server...Done.
+Getting trapdoor state from server...Done.
+^[[A^[First waitForGoCall: 1484505858676
+First pos_edge_HmGX: 1484505859826
+2180
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484505865600
+Pre-Enabled Beam: 1484505865600
+Second pos_edge_HmGX: 1484505870727
+----------------------------------- 
+First waitForGoCall: 1484507600903
+First pos_edge_HmGX: 1484507611177
+2181
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484507617163
+Pre-Enabled Beam: 1484507617164
+Second pos_edge_HmGX: 1484507622077
+----------------------------------- 
+First waitForGoCall: 1484508461276
+First pos_edge_HmGX: 1484508469876
+2182
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484508475583
+Pre-Enabled Beam: 1484508475583
+Second pos_edge_HmGX: 1484508480726
+----------------------------------- 
+First waitForGoCall: 1484510510430
+First pos_edge_HmGX: 1484510517477
+2183
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484510523184
+Pre-Enabled Beam: 1484510523185
+Second pos_edge_HmGX: 1484510528326
+----------------------------------- 
+First waitForGoCall: 1484511487934
+First pos_edge_HmGX: 1484511495976
+2184
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484511503040
+Pre-Enabled Beam: 1484511503041
+Second pos_edge_HmGX: 1484511506826
+----------------------------------- 
+First waitForGoCall: 1484512094465
+First pos_edge_HmGX: 1484512094876
+2185
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484512101593
+Pre-Enabled Beam: 1484512101593
+Second pos_edge_HmGX: 1484512105777
+----------------------------------- 
+First waitForGoCall: 1484513625394
+First pos_edge_HmGX: 1484514047527
+2186
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484514053189
+Pre-Enabled Beam: 1484514053189
+Second pos_edge_HmGX: 1484514058426
+----------------------------------- 
+First waitForGoCall: 1484514647493
+First pos_edge_HmGX: 1484514656926
+2187
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484514662461
+Pre-Enabled Beam: 1484514662461
+Second pos_edge_HmGX: 1484514667826
+----------------------------------- 
+First waitForGoCall: 1484516256069
+First pos_edge_HmGX: 1484516256276
+2188
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484516262285
+Pre-Enabled Beam: 1484516262286
+Second pos_edge_HmGX: 1484516267127
+----------------------------------- 
+First waitForGoCall: 1484516830894
+First pos_edge_HmGX: 1484516832727
+2189
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484516838619
+Pre-Enabled Beam: 1484516838619
+Second pos_edge_HmGX: 1484516843626
+----------------------------------- 
+First waitForGoCall: 1484518573215
+First pos_edge_HmGX: 1484518581126
+2190
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484518587682
+Pre-Enabled Beam: 1484518587683
+Second pos_edge_HmGX: 1484518591976
+----------------------------------- 
+First waitForGoCall: 1484519430021
+First pos_edge_HmGX: 1484519438826
+2191
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484519444917
+Pre-Enabled Beam: 1484519444917
+Second pos_edge_HmGX: 1484519449676
+----------------------------------- 
+First waitForGoCall: 1484521180079
+First pos_edge_HmGX: 1484521188177
+2192
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484521194721
+Pre-Enabled Beam: 1484521194721
+Second pos_edge_HmGX: 1484521199076
+----------------------------------- 
+First waitForGoCall: 1484522039831
+First pos_edge_HmGX: 1484522048026
+2193
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484522054032
+Pre-Enabled Beam: 1484522054032
+Second pos_edge_HmGX: 1484522058927
+----------------------------------- 
+First waitForGoCall: 1484523788848
+First pos_edge_HmGX: 1484523796226
+2194
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484523802594
+Pre-Enabled Beam: 1484523802595
+Second pos_edge_HmGX: 1484523807077
+----------------------------------- 
+First waitForGoCall: 1484524667541
+First pos_edge_HmGX: 1484524675977
+2195
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484524682030
+Pre-Enabled Beam: 1484524682031
+Second pos_edge_HmGX: 1484524686827
+----------------------------------- 
+First waitForGoCall: 1484526417465
+First pos_edge_HmGX: 1484526424327
+2196
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484526430785
+Pre-Enabled Beam: 1484526430787
+Second pos_edge_HmGX: 1484526435176
+----------------------------------- 
+First waitForGoCall: 1484527294583
+First pos_edge_HmGX: 1484527303676
+2197
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484527309625
+Pre-Enabled Beam: 1484527309626
+Second pos_edge_HmGX: 1484527314526
+----------------------------------- 
+First waitForGoCall: 1484529131177
+First pos_edge_HmGX: 1484529141277
+2198
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484529147239
+Pre-Enabled Beam: 1484529147239
+Second pos_edge_HmGX: 1484529152126
+----------------------------------- 
+First waitForGoCall: 1484530012280
+First pos_edge_HmGX: 1484530020526
+2199
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484530026109
+Pre-Enabled Beam: 1484530026109
+Second pos_edge_HmGX: 1484530031376
+----------------------------------- 
+First waitForGoCall: 1484540834026
+First pos_edge_HmGX: 1484540844426
+2201
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484540850054
+Pre-Enabled Beam: 1484540850055
+Second pos_edge_HmGX: 1484540855227
+----------------------------------- 
+First waitForGoCall: 1484541712887
+First pos_edge_HmGX: 1484541712935
+Encountered Error! 
+Errno:11
+Resource temporarily unavailable
+ControlGUI: ../ControlGUI/controlgui.cpp:878: bool ControlGUI::start_robs_daq(): Assertion `nbytes != -1' failed.
+Aborted (core dumped)
+daq@ucntau-daq:~/TauControl/build-ControlGUI$ ./ControlGUI
+Getting dagger position from server...Done.
+Getting giant cleaner position from server...Done.
+Getting trapdoor state from server...Done.
+First waitForGoCall: 1484555425969
+First pos_edge_HmGX: 1484555435277
+2222
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484555438004
+Pre-Enabled Beam: 1484555438005
+Second pos_edge_HmGX: 1484555446177
+----------------------------------- 
+DAQ not found!!!
+First waitForGoCall: 1484555630228
+First pos_edge_HmGX: 1484555631427
+0
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484555633464
+Pre-Enabled Beam: 1484555633465
+First pos_edge_HmGX: 1484555642326
+2224
+"/home/daq/TauControl/controlpost" ("/home/daq/TauControl/tmp/runparams.txt", "/home/daq/TauControl/tmp/rundiagram.png") 
+Finished arming DAQ: 1484555649008
+Pre-Enabled Beam: 1484555649008
+Second pos_edge_HmGX: 1484555653226

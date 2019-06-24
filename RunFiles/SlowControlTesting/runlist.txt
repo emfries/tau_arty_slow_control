@@ -1,0 +1,2 @@
+FILE=/home/daq/TauControl/RunFiles/SlowControlTesting/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/SlowControlTesting/20sHold_50sCln_3Dip.txt

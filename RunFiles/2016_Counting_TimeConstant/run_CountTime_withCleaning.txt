@@ -1,0 +1,5 @@
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/large_cleaner_490k_clean100s_store380s_4steps_120KDetect.txt
+FILE=/home/daq/TauControl/RunFiles/intermission-reversedBeam.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/large_cleaner_490k_clean100s_store380s_4steps_120KDetect.txt
+FILE=/home/daq/TauControl/RunFiles/intermission-reversedBeam.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/large_cleaner_490k_clean100s_store380s_4steps_10KDetect.txt

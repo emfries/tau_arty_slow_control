@@ -1,0 +1,30 @@
+State                           3
+Online Mode                     1
+Run number                      4345
+Transition in progress          0
+Start abort                     0
+Requested transition            0
+Start time                      Sun Nov  1 10:16:12 2015
+Start time binary               1446398172
+Stop time                       Sun Nov  1 08:27:58 2015
+Stop time binary                0
+State                           3
+Online Mode                     1
+Run number                      4346
+Transition in progress          0
+Start abort                     0
+Requested transition            0
+Start time                      Sun Nov  1 10:33:13 2015
+Start time binary               1446399193
+Stop time                       Sun Nov  1 10:20:36 2015
+Stop time binary                0
+State                           3
+Online Mode                     1
+Run number                      4347
+Transition in progress          0
+Start abort                     0
+Requested transition            0
+Start time                      Sun Nov  1 10:38:28 2015
+Start time binary               1446399508
+Stop time                       Sun Nov  1 10:33:37 2015
+Stop time binary                0

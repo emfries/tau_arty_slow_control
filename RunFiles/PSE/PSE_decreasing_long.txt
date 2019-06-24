@@ -1,0 +1,13 @@
+FILE=/home/daq/TauControl/RunFiles/PSE_1000s.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_500s.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_200s.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_100s.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_70s.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_50s.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_30s.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_10s.txt
+
+
+
+
+

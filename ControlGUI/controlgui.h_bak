@@ -1,0 +1,184 @@
+#ifndef CONTROLGUI_H
+#define CONTROLGUI_H
+
+#include <QMainWindow>
+#include <QTimer>
+#include <QTime>
+#include "qcustomplot.h"
+#include <QStringList>
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+
+extern "C" {
+#include "u3.h"
+}
+
+namespace Ui {
+class ControlGUI;
+}
+
+template <class state_type> class ControlEvent
+{
+public:
+    ControlEvent(double tval, state_type stval,double btval) {
+        t = tval; st = stval; bt = btval;
+    }
+    double time() const { return t; }
+    double bltime() const {return bt;}
+    state_type state() const { return st; }
+
+private:
+    double t;
+    state_type st;
+    double bt;
+};
+
+class ControlGUI : public QMainWindow
+{
+    Q_OBJECT
+    
+public:
+    explicit ControlGUI(QWidget *parent = 0);
+    ~ControlGUI();
+
+    void openLabjack();
+    void closeLabjack();
+
+    // These are the Labjack digital IO channels.
+    // Set the values in the class implementation file.
+    static const int kHmGXSignal; // H-GX from CCR, stretched to 1 s pulses via gate generator
+    static const int kGoLine; // from MPA3. Tells if DAQ is running.
+    static const int kBeamEnableCh;
+    static const int kGateValveCh;
+    static const int kCleanerCh;
+    static const int kTimingCh;
+    static const int kDaqTriggerCh; // output. Starts MIDAS DAQ.
+    static const int kButterflyCh; // butterfly valve at input to cross assembly
+
+    static const QString kControlDir; // directory to find the midas start and elog post scripts
+
+    // Logic sense of the control channels.
+    //   1 ("true") means Labjack output HIGH (+3.3V).
+    // Set the values in the class implementation file.
+    static const bool kDaqRunning;
+    static const bool kBeamOn;
+    static const bool kGateValveOpen;
+    static const bool kCleanerDown;
+    static const bool kButterflyClosed;
+    
+private slots:
+    void gateValve_toggled(bool checked);
+    void beamEnable_toggled(bool checked);
+    void cleaner_toggled(bool checked);
+    void trapdoor_index_changed(int index);
+    void dagger_button_pushed();
+    void giantCleaner_button_pushed();
+    void butterfly_toggled(bool checked);
+
+    void openFile_clicked();
+    void startButton_clicked(bool firstcall=true);
+    void waitForGoThenStart(bool firstcall=false);
+    void doNextBeamTransition(bool firstcall=false);
+    void doNextGateValveTransition(bool firstcall=false);
+    void doNextCleanerTransition(bool firstcall=false);
+    void doNextTrapdoorTransition(bool firstcall=false);
+    void doNextDaggerTransition(bool firstcall=false);
+    void doNextGiantCleanerTransition(bool firstcall=false);
+    void doNextButterflyTransition(bool firstcall=false);
+    void updateElapsedTime();
+    void abortButton_clicked();
+
+    void emitTimingPulse();
+
+    void on_loadfileNumber_button_clicked();
+
+private:
+    Ui::ControlGUI *ui;
+
+    // Following the u3EFunctions.c example...
+    HANDLE hDevice;
+    u3CalibrationInfo caliInfo;
+    int localID;
+
+    int getDigitalInput(int channel);
+    void setDigitalOutput(int channel, bool state);
+    void updateTimingPattern(QString filename);
+    double get_time_of_last_event();
+    void updatePlot();
+    void enableChannelButtons(bool state);
+
+    void get_zdagger();
+    void reset_dagger_velacceldecel();
+    void get_zGiantCleaner();
+    void reset_giantCleaner_velacceldecel();
+    void get_trapdoor_state();
+    
+    void get_midas_odb();
+    double factor;
+    double deltat;
+    double dagger_up_time;
+    double count_time;
+    double clean_time;
+    int run_number;
+    bool override_list;
+    
+    bool start_midas();
+    bool start_robs_daq();
+    bool stop_robs_daq();
+    bool setdb(double ft,double ct);
+    void make_elog_post();
+    void startTheCycle();
+    void stopTheCycle(bool abort_run = false);
+
+    int iStart; // index to keep track of which parameter file to use
+
+    int iBeamTransition; // index to keep track of next transition
+    int iGateValveTransition; // index to keep track of next transition
+    int iCleanerTransition; // index to keep track of next transition
+    int iTrapdoorTransition; // index to keep track of next transition
+    int iDaggerTransition; // index to keep track of next transition
+    int iGiantCleanerTransition; // index to keep track of next transition
+    int iButterflyTransition; // index to keep track of next transition
+    QList<ControlEvent<bool> >    beamEnableStates;
+    QList<ControlEvent<bool> >    gateValveStates;
+    QList<ControlEvent<bool> >    cleanerStates;
+    QList<ControlEvent<QString> > trapdoorStates;
+    QList<ControlEvent<double> >  daggerPositions;
+    QList<ControlEvent<double> >  giantCleanerPositions;
+    QList<ControlEvent<bool> >    butterflyStates;
+
+    QTimer *waitForGoTimer;
+
+    // Event timers
+    QTimer *beamTransitionTimer;
+    QTimer *gateValveTransitionTimer;
+    QTimer *cleanerTransitionTimer;
+    QTimer *trapdoorTransitionTimer;
+    QTimer *daggerTransitionTimer;
+    QTimer *giantCleanerTransitionTimer;
+    QTimer *butterflyTransitionTimer;
+
+    QTimer *elapsedTimer;
+    QCPItemLine *progressLine;
+
+    QTime cycleTime;
+
+    void *context;
+    void *socket_trapdoor;
+    void *socket_dagger;
+    void *socket_giantCleaner;
+    void *socket_daq;
+    static const int dagger_recv_buffer_size = 256;
+    char dagger_recv_buffer[dagger_recv_buffer_size];
+    static const int giantCleaner_recv_buffer_size = 256;
+    char giantCleaner_recv_buffer[giantCleaner_recv_buffer_size];
+    static const int trapdoor_recv_buffer_size = 256;
+    char trapdoor_recv_buffer[trapdoor_recv_buffer_size];
+    static const int daq_recv_buffer_size = 256;
+    char daq_recv_buffer[trapdoor_recv_buffer_size];
+
+    QStringList runFileNames;
+};
+
+#endif // CONTROLGUI_H

@@ -1,0 +1,5 @@
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_FillNDump.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/1300sHold_50sClean_FillNDump.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_FillNDump.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/1300sHold_50sClean_FillNDump.txt
+

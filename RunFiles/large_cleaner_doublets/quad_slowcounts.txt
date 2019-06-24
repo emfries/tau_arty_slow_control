@@ -1,0 +1,7 @@
+FILE=/home/daq/TauControl/RunFiles/large_cleaner_doublets/large_cleaner_450k_clean200s_noAC_store20s_1step.txt
+FILE=/home/daq/TauControl/RunFiles/large_cleaner_doublets/large_cleaner_450k_clean200s_noAC_store20s_slowcount.txt
+FILE=/home/daq/TauControl/RunFiles/large_cleaner_doublets/large_cleaner_450k_clean200s_noAC_store20s_1step.txt
+FILE=/home/daq/TauControl/RunFiles/large_cleaner_doublets/large_cleaner_450k_clean200s_noAC_store20s_slowcount.txt
+
+
+

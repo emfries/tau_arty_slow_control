@@ -1,0 +1,7 @@
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/Spectrum_Measurements/Spectrum_45s_dag40k.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/Spectrum_Measurements/Spectrum_90s_dag60k.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/Spectrum_Measurements/Spectrum_130s_dag80k.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/Spectrum_Measurements/Spectrum_200s_dag110k.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/Spectrum_Measurements/Spectrum_200s_dag140k.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/Spectrum_Measurements/Spectrum_250s_dag180k.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/Spectrum_Measurements/Spectrum_500s_dag250k.txt

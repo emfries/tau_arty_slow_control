@@ -1,0 +1,2 @@
+FILE=/home/daq/TauControl/RunFiles/2016_SourceAndGuide_Lifetime/catdoorUpLifetime.txt
+FILE=/home/daq/TauControl/RunFiles/2016_SourceAndGuide_Lifetime/catdoorUpLifetime.txt

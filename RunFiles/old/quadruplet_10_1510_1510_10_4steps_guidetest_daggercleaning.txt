@@ -1,0 +1,4 @@
+FILE=/home/daq/TauControl/RunFiles/holding_time_10s_4steps_daggercleaning.txt
+FILE=/home/daq/TauControl/RunFiles/holding_time_1510s_4steps_daggercleaning.txt
+FILE=/home/daq/TauControl/RunFiles/holding_time_1510s_4steps_daggercleaning.txt
+FILE=/home/daq/TauControl/RunFiles/holding_time_10s_4steps_daggercleaning.txt

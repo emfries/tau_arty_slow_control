@@ -1,0 +1,34 @@
+#
+# Each non-comment line must have T=[time] as the first key-value pair.
+# All keys must be assigned values in the first line.
+# An additional key COMMENT can be specified; it's value will be displayed
+# in the GUI and forwarded to MIDAS (unless the user changes it in the
+# GUI before the run is started).
+#
+#    Key          Value
+# -------------------------------------------------------------------------
+#     T           Elapsed time of event [seconds, floating-point number >= 0]
+#   TRAPDOOR      State to put the trap door in [FILL/HOLD/DUMP]
+#   DAGGER        Dagger position [steps].
+#   GIANTCLEANER  Cleaner Position [steps].
+#   GATEVALVE     [OPEN/CLOSED]
+#   BEAM          [Veto ON/OFF]
+#   CLEANER       [DOWN/UP]
+#   BUTTERFLY     [OPEN/CLOSED]
+# -------------------------------------------------------------------------
+#
+# This is the comment that will be displayed in the GUI and forwared to MIDAS.
+COMMENT = new slow control test
+# At T=0, all parameters should be assigned values.
+T=0, TRAPDOOR=FILL, DAGGER=10000, GATEVALVE=OPEN, BEAM=OFF, CLEANER=DOWN, GIANTCLEANER=4000000
+T=10, TRAPDOOR=DUMP, DAGGER=20000, GATEVALVE=CLOSED, BEAM=ON, CLEANER=UP, GIANTCLEANER=1000000
+T=20, TRAPDOOR=FILL, DAGGER=10000, GATEVALVE=OPEN, BEAM=OFF, CLEANER=DOWN, GIANTCLEANER=4000000
+T=30, TRAPDOOR=DUMP, DAGGER=20000, GATEVALVE=CLOSED, BEAM=ON, CLEANER=UP, GIANTCLEANER=7000000
+T=40, TRAPDOOR=FILL, DAGGER=10000, GATEVALVE=OPEN, BEAM=OFF, CLEANER=DOWN, GIANTCLEANER=4000000
+T=50, TRAPDOOR=DUMP, DAGGER=20000, GATEVALVE=CLOSED, BEAM=ON, CLEANER=UP, GIANTCLEANER=1000000
+T=60, TRAPDOOR=FILL, DAGGER=10000, GATEVALVE=OPEN, BEAM=OFF, CLEANER=DOWN, GIANTCLEANER=4000000
+T=70, TRAPDOOR=DUMP, DAGGER=20000, GATEVALVE=CLOSED, BEAM=ON, CLEANER=UP, GIANTCLEANER=7000000
+T=80, TRAPDOOR=FILL, DAGGER=10000, GATEVALVE=OPEN, BEAM=OFF, CLEANER=DOWN, GIANTCLEANER=4000000
+T=90, TRAPDOOR=DUMP, DAGGER=20000, GATEVALVE=CLOSED, BEAM=ON, CLEANER=UP, GIANTCLEANER=1000000
+T=100, TRAPDOOR=FILL, DAGGER=10000, GATEVALVE=OPEN, BEAM=OFF, CLEANER=DOWN, GIANTCLEANER=4000000
+

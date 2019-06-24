@@ -1,0 +1,7 @@
+FILE=/home/daq/TauControl/RunFiles/PSE_500s_single_step.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_200s_single_step.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_100s_single_step.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_50s_single_step.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_20s_single_step.txt
+FILE=/home/daq/TauControl/RunFiles/PSE_10s_single_step.txt
+

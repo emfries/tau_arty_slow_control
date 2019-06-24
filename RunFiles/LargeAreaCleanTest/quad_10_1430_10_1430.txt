@@ -1,0 +1,8 @@
+FILE=/home/daq/TauControl/RunFiles/LargeAreaCleanTest/giantClean_DagAt370k_100s_1step_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/LargeAreaCleanTest/giantClean_DagAt370k_100s_1step_store1430s.txt
+FILE=/home/daq/TauControl/RunFiles/LargeAreaCleanTest/giantClean_DagAt370k_100s_1step_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/LargeAreaCleanTest/giantClean_DagAt370k_100s_1step_store1430s.txt
+
+
+
+

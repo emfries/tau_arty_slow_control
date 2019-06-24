@@ -1,0 +1,2 @@
+FILE=/home/daq/TauControl/RunFiles/holding_time_10s_2steps_guidetests_daggercleaning.txt
+FILE=/home/daq/TauControl/RunFiles/holding_time_1510s_2steps_guidetests_daggercleaning.txt

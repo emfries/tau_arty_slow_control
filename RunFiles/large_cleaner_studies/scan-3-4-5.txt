@@ -1,0 +1,3 @@
+FILE=/home/daq/TauControl/RunFiles/large_cleaner_studies/large_cleaner_450k_clean200s_store10s_4steps.txt
+FILE=/home/daq/TauControl/RunFiles/large_cleaner_studies/large_cleaner_450k_clean50s_store1000s_4steps.txt
+FILE=/home/daq/TauControl/RunFiles/large_cleaner_studies/large_cleaner_450k_clean50s_store10s_4steps.txt

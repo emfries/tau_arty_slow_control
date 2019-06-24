@@ -1,0 +1,36 @@
+#
+# Each non-comment line must have T=[time] as the first key-value pair.
+# All keys must be assigned values in the first line.
+# An additional key COMMENT can be specified; it's value will be displayed
+# in the GUI and forwarded to MIDAS (unless the user changes it in the
+# GUI before the run is started).
+#
+#    Key          Value
+# -------------------------------------------------------------------------
+#     T           Elapsed time of event [seconds, floating-point number >= 0]
+#   TRAPDOOR      State to put the trap door in [FILL/HOLD/DUMP]
+#   DAGGER        Dagger position [steps].
+#   GIANTCLEANER  Cleaner Position [steps].
+#   GATEVALVE     [OPEN/CLOSED]
+#   BEAM          [ON/OFF]
+#   CLEANER       [DOWN/UP]
+#   BUTTERFLY     [OPEN/CLOSED]
+# -------------------------------------------------------------------------
+#
+# This is the comment that will be displayed in the GUI and forwared to MIDAS.
+COMMENT = blinded: 150s Fill (380k) | 300s Clean w/ AC down, dagger@38cm, giant up | 20s holding | 9 dips w/ AC down 380,250(20s) 180,140,110,80,60,40(10s) 10(40s) | step bkgd | return actuators to last position
+# At T=0, all parameters should be assigned values.
+T=0, TRAPDOOR=FILL, DAGGER=380000, GATEVALVE=OPEN, BEAM=OFF, CLEANER=DOWN, GIANTCLEANER=10387500
+# Close the trap door, close the gate valve, turn the beam off
+T=150, TRAPDOOR=HOLD, GATEVALVE=CLOSED, BEAM=ON
+T=450, CLEANER=UP, GIANTCLEANER=10387500, DAGGER=490000, HOLD=1  # Cleaner up ##### Beginning of holding period #####
+T=470, DAGGER=380000, CLEANER=DOWN, COUNT=1
+T=490, DAGGER=250000
+T=510, DAGGER=180000
+T=520, DAGGER=140000
+T=530, DAGGER=110000
+T=540, DAGGER=80000
+T=550, DAGGER=60000
+T=560, DAGGER=40000
+T=570, DAGGER=10000
+T=610, TRAPDOOR=FILL, DAGGER=380000, CLEANER=DOWN, GIANTCLEANER=100000

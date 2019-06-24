@@ -1,0 +1,2 @@
+FILE=/home/daq/TauControl/RunFiles/CleaningScan-DownDuring500sHold.txt
+FILE=/home/daq/TauControl/RunFiles/CleaningScan-UpAfter200sClean500sHold.txt

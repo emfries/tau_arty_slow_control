@@ -1,0 +1,4 @@
+FILE=/home/daq/TauControl/RunFiles/gd/gd_1cm_100s.txt
+FILE=/home/daq/TauControl/RunFiles/gd/gd_1cm_100s.txt
+FILE=/home/daq/TauControl/RunFiles/gd/gd_1cm_100s.txt
+FILE=/home/daq/TauControl/RunFiles/gd/gd_1cm_100s.txt

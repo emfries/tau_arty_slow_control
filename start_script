@@ -1,0 +1,6 @@
+#!/bin/bash
+
+odbedit -e Default -c "set '/Logger/Run duration' $1"
+odbedit -e Default -c "set '/Experiment/Run Parameters/Comment' $2"
+odbedit -e Default -c "set '/Equipment/Trigger/Settings/acq_ctrl' n"
+odbedit -e Default -c start 

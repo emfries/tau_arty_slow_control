@@ -1,0 +1,6 @@
+FILE=/home/daq/TauControl/RunFiles/cleaning/cleaning_study_dagger250k_50s.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning/cleaning_study_dagger250k_100s.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning/cleaning_study_dagger250k_200s.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning/cleaning_study_dagger250k_300s.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning/cleaning_study_dagger250k_400s.txt
+

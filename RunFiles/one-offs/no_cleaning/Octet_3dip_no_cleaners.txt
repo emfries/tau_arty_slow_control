@@ -1,0 +1,9 @@
+FILE=/home/daq/TauControl/RunFiles/one-offs/no_cleaning/20sHold_50sClean_3Dip_no_cleaners.txt
+FILE=/home/daq/TauControl/RunFiles/one-offs/no_cleaning/1550sHold_50sClean_3Dip_no_cleaners.txt
+FILE=/home/daq/TauControl/RunFiles/one-offs/no_cleaning/50sHold_50sClean_3Dip_no_cleaners.txt
+FILE=/home/daq/TauControl/RunFiles/one-offs/no_cleaning/1550sHold_50sClean_3Dip_no_cleaners.txt
+FILE=/home/daq/TauControl/RunFiles/one-offs/no_cleaning/100sHold_50sClean_3Dip_no_cleaners.txt
+FILE=/home/daq/TauControl/RunFiles/one-offs/no_cleaning/1550sHold_50sClean_3Dip_no_cleaners.txt
+FILE=/home/daq/TauControl/RunFiles/one-offs/no_cleaning/200sHold_50sClean_3Dip_no_cleaners.txt
+FILE=/home/daq/TauControl/RunFiles/one-offs/no_cleaning/1550sHold_50sClean_3Dip_no_cleaners.txt
+

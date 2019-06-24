@@ -1,0 +1,4 @@
+FILE=/home/daq/TauControl/RunFiles/2016_LargeCleanerOnly_LT/10sHold_100sClean_4Dip_BKGreverse.txt
+FILE=/home/daq/TauControl/RunFiles/2016_LargeCleanerOnly_LT/1210sHold_100sClean_4Dip_BKGreverse.txt
+FILE=/home/daq/TauControl/RunFiles/2016_LargeCleanerOnly_LT/10sHold_100sClean_4Dip_BKGreverse.txt
+FILE=/home/daq/TauControl/RunFiles/2016_LargeCleanerOnly_LT/1210sHold_100sClean_4Dip_BKGreverse.txt

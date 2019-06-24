@@ -1,0 +1,4 @@
+#!/bin/bash
+
+odbedit -e Default -c "set '/Experiment/Run Parameters/cleaner_up' $1"
+odbedit -e Default -c "set '/Experiment/Run Parameters/dagger_down' $2"

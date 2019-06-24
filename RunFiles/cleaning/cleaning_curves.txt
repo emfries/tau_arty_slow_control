@@ -1,0 +1,4 @@
+FILE=/home/daq/TauControl/RunFiles/cleaning_study_500s_ACup_dagger37k.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning_study_500s_ACdown_dagger37k.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning_study_500s_ACup_dagger25k.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning_study_500s_ACdown_dagger25k.txt

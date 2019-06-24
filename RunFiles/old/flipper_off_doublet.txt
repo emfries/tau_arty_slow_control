@@ -1,0 +1,2 @@
+FILE=/home/daq/TauControl/RunFiles/flipper_off_0s.txt
+FILE=/home/daq/TauControl/RunFiles/flipper_off_200s.txt

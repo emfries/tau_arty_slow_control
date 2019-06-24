@@ -1,0 +1,9 @@
+FILE=/home/daq/SlowControl/tau_arty_slow_control-master/RunFiles/test/onetenth_20_50.txt
+FILE=/home/daq/SlowControl/tau_arty_slow_control-master/RunFiles/test/onetenth_20_50.txt
+FILE=/home/daq/SlowControl/tau_arty_slow_control-master/RunFiles/test/onetenth_20_50.txt
+FILE=/home/daq/SlowControl/tau_arty_slow_control-master/RunFiles/test/onetenth_20_50.txt
+FILE=/home/daq/SlowControl/tau_arty_slow_control-master/RunFiles/test/onetenth_20_50.txt
+FILE=/home/daq/SlowControl/tau_arty_slow_control-master/RunFiles/test/onetenth_20_50.txt
+FILE=/home/daq/SlowControl/tau_arty_slow_control-master/RunFiles/test/onetenth_20_50.txt
+FILE=/home/daq/SlowControl/tau_arty_slow_control-master/RunFiles/test/onetenth_20_50.txt
+

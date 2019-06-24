@@ -1,0 +1,12 @@
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/20sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/1000sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/50sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/900sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/100sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/800sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/200sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/700sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/300sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/600sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/500sHolding.txt
+FILE=/home/daq/TauControl/RunFiles/2017_dagger_cleaning_evolution/1000sHolding.txt

@@ -1,0 +1,2 @@
+FILE=/home/daq/TauControl/RunFiles/2016_Cleaning_Time_Scan/large_cleaner_clean50s_Fill_2Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Cleaning_Time_Scan/large_cleaner_clean50s_Fill_2Dip.txt

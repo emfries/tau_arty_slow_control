@@ -1,0 +1,14 @@
+FILE=/home/daq/TauControl/RunFiles/daggercleaning_250k_100s_4steps_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/daggercleaning_250k_100s_4steps_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/daggercleaning_250k_100s_4steps_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/daggercleaning_250k_100s_4steps_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/daggercleaning_250k_100s_4steps_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/daggercleaning_250k_100s_4steps_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/daggercleaning_250k_100s_4steps_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/daggercleaning_250k_100s_4steps_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/daggercleaning_250k_100s_4steps_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/daggercleaning_250k_100s_4steps_store10s.txt
+
+
+
+

@@ -1,0 +1,8 @@
+FILE=/home/daq/TauControl/RunFiles/deep_onestep_heating/daggercleaning_250k_200s_450k_hold_1step_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/deep_onestep_heating/daggercleaning_250k_200s_450k_hold_1step_store1430s.txt
+FILE=/home/daq/TauControl/RunFiles/deep_onestep_heating/daggercleaning_250k_200s_450k_hold_1step_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/deep_onestep_heating/daggercleaning_250k_200s_450k_hold_1step_store1430s.txt
+
+
+
+

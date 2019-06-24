@@ -1,0 +1,1396 @@
+--->iteration  0
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  1
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  2
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  3
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  4
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  5
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  6
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  7
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  8
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  9
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  10
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  11
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  12
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  13
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  14
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  15
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  16
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  17
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  18
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  19
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  20
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  21
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  22
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  23
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  24
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  25
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  26
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  27
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  28
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  29
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  30
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  31
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  32
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  33
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  34
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  35
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  36
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  37
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  38
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  39
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  40
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  41
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  42
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  43
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  44
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  45
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  46
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  47
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  48
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  49
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  50
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  51
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  52
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  53
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  54
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  55
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  56
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  57
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  58
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  59
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  60
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  61
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  62
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  63
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  64
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  65
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  66
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  67
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  68
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  69
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  70
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  71
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  72
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  73
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  74
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  75
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  76
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  77
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  78
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  79
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  80
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  81
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  82
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  83
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  84
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  85
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  86
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  87
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  88
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  89
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  90
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  91
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  92
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_Begin: 110010 1101
+readObject result: 1.0000000
+readObject result: 4
+Up: 110100 1101
+readObject result: 1.0000000
+readObject result: 1
+Dump: 110001 1101
+readObject result: 1.0000000
+Response:  1.0000000
+readObject result: 2
+Fill_Run_End: 110010 1101
+--->iteration  93

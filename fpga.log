@@ -1,0 +1,462 @@
+2018-05-11 16:46:24.687589: FPGA server started
+2018-05-11 17:01:57.636295: FPGA server started
+2018-05-11 17:02:14.508462: FPGA server started
+2018-05-11 17:02:19.227129: sending FPGA params to Slow Control
+2018-05-11 17:07:38.777335: sending FPGA params to Slow Control
+2018-05-11 17:07:41.291764: Slow Control sending run file
+2018-05-11 17:07:41.293150: sending the run file from the server to the FPGA
+2018-05-11 17:07:42.297051: starting the FPGA now
+2018-05-11 17:07:42.398061: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:08:23.904029: sending FPGA params to Slow Control
+2018-05-11 17:08:25.276191: Slow Control sending run file
+2018-05-11 17:08:25.277581: sending the run file from the server to the FPGA
+2018-05-11 17:08:26.281826: starting the FPGA now
+2018-05-11 17:08:26.382760: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:09:42.038446: sending FPGA params to Slow Control
+2018-05-11 17:09:45.036558: Slow Control sending run file
+2018-05-11 17:09:45.038163: sending the run file from the server to the FPGA
+2018-05-11 17:09:46.042844: starting the FPGA now
+2018-05-11 17:09:46.143908: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:12:03.149769: sending FPGA params to Slow Control
+2018-05-11 17:12:04.724893: Slow Control sending run file
+2018-05-11 17:12:04.726290: sending the run file from the server to the FPGA
+2018-05-11 17:12:05.731046: starting the FPGA now
+2018-05-11 17:12:05.832166: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:16:17.742269: sending FPGA params to Slow Control
+2018-05-11 17:16:19.510000: Slow Control sending run file
+2018-05-11 17:16:19.511116: sending the run file from the server to the FPGA
+2018-05-11 17:16:20.514789: starting the FPGA now
+2018-05-11 17:16:20.615631: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:16:25.445913: Slow Control sending run file
+2018-05-11 17:16:25.447189: sending the run file from the server to the FPGA
+2018-05-11 17:16:26.451580: starting the FPGA now
+2018-05-11 17:16:26.552480: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:16:32.364748: Slow Control sending run file
+2018-05-11 17:16:32.365306: sending the run file from the server to the FPGA
+2018-05-11 17:16:33.369439: starting the FPGA now
+2018-05-11 17:16:33.470443: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:16:43.291645: Slow Control sending run file
+2018-05-11 17:16:43.292903: sending the run file from the server to the FPGA
+2018-05-11 17:16:44.296735: starting the FPGA now
+2018-05-11 17:16:44.397544: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:18:37.814613: Slow Control sending run file
+2018-05-11 17:18:37.816106: sending the run file from the server to the FPGA
+2018-05-11 17:18:38.819807: starting the FPGA now
+2018-05-11 17:18:38.920844: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:18:44.557096: sending FPGA params to Slow Control
+2018-05-11 17:18:46.639407: Slow Control sending run file
+2018-05-11 17:18:46.640516: sending the run file from the server to the FPGA
+2018-05-11 17:18:47.643833: starting the FPGA now
+2018-05-11 17:18:47.744811: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:18:50.127213: Slow Control sending run file
+2018-05-11 17:18:50.128395: sending the run file from the server to the FPGA
+2018-05-11 17:18:51.132666: starting the FPGA now
+2018-05-11 17:18:51.233534: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:18:54.014590: Slow Control sending run file
+2018-05-11 17:18:54.016221: sending the run file from the server to the FPGA
+2018-05-11 17:18:55.020440: starting the FPGA now
+2018-05-11 17:18:55.121444: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-11 17:18:55.325134: Slow Control sending run file
+2018-05-11 17:2018-05-13 18:12:31.779759: FPGA server started
+2018-05-13 18:13:37.956136: FPGA server started
+2018-05-13 18:13:56.091565: sending FPGA params to Slow Control
+2018-05-13 18:13:58.618585: Slow Control sending run file
+2018-05-13 18:13:58.620288: sending the run file from the server to the FPGA
+2018-05-13 18:13:59.624914: starting the FPGA now
+2018-05-13 18:13:59.726019: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:14:05.594669: Slow Control sending run file
+2018-05-13 18:14:05.596269: sending the run file from the server to the FPGA
+2018-05-13 18:14:06.600818: starting the FPGA now
+2018-05-13 18:14:06.701893: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:14:09.010809: Slow Control sending run file
+2018-05-13 18:14:09.012554: sending the run file from the server to the FPGA
+2018-05-13 18:14:10.017189: starting the FPGA now
+2018-05-13 18:14:10.118205: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:14:10.930697: Slow Control sending run file
+2018-05-13 18:14:10.932234: sending the run file from the server to the FPGA
+2018-05-13 18:14:11.936732: starting the FPGA now
+2018-05-13 18:14:12.037789: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:18:44.755644: Slow Control sending run file
+2018-05-13 18:18:44.757278: sending the run file from the server to the FPGA
+2018-05-13 18:18:45.761979: starting the FPGA now
+2018-05-13 18:18:45.863067: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:18:47.747662: Slow Control sending run file
+2018-05-13 18:18:47.749392: sending the run file from the server to the FPGA
+2018-05-13 18:18:48.754055: starting the FPGA now
+2018-05-13 18:18:48.855114: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:19:21.340547: sending FPGA params to Slow Control
+2018-05-13 18:19:51.547959: Slow Control sending run file
+2018-05-13 18:19:51.549329: sending the run file from the server to the FPGA
+2018-05-13 18:19:52.553856: starting the FPGA now
+2018-05-13 18:19:52.654928: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:22:29.924165: Slow Control sending run file
+2018-05-13 18:22:29.925759: sending the run file from the server to the FPGA
+2018-05-13 18:22:30.930128: starting the FPGA now
+2018-05-13 18:22:31.031192: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:22:31.828377: Slow Control sending run file
+2018-05-13 18:22:31.830042: sending the run file from the server to the FPGA
+2018-05-13 18:22:32.834461: starting the FPGA now
+2018-05-13 18:22:32.935453: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:22:51.820494: Slow Control sending run file
+2018-05-13 18:22:51.822003: sending the run file from the server to the FPGA
+2018-05-13 18:22:52.826592: starting the FPGA now
+2018-05-13 18:22:52.927682: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:22:57.948488: Slow Control sending run file
+2018-05-13 18:22:57.950223: sending the run file from the server to the FPGA
+2018-05-13 18:22:58.954803: starting the FPGA now
+2018-05-13 18:22:59.055897: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:23:03.260241: Slow Control sending run file
+2018-05-13 18:23:03.261926: sending the run file from the server to the FPGA
+2018-05-13 18:23:04.265804: starting the FPGA now
+2018-05-13 18:23:04.366793: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:24:11.692502: Slow Control sending run file
+2018-05-13 18:24:11.694114: sending the run file from the server to the FPGA
+2018-05-13 18:24:12.698776: starting the FPGA now
+2018-05-13 18:24:12.799876: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:24:16.388552: Slow Control sending run file
+2018-05-13 18:24:16.390197: sending the run file from the server to the FPGA
+2018-05-13 18:24:17.394794: starting the FPGA now
+2018-05-13 18:24:17.495898: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:24:28.500693: Slow Control sending run file
+2018-05-13 18:24:28.502242: sending the run file from the server to the FPGA
+2018-05-13 18:24:29.506632: starting the FPGA now
+2018-05-13 18:24:29.607687: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:24:34.940697: Slow Control sending run file
+2018-05-13 18:24:34.942317: sending the run file from the server to the FPGA
+2018-05-13 18:24:35.946568: starting the FPGA now
+2018-05-13 18:24:36.047646: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:26:48.893123: Slow Control sending run file
+2018-05-13 18:26:48.894754: sending the run file from the server to the FPGA
+2018-05-13 18:26:49.899290: starting the FPGA now
+2018-05-13 18:26:50.000219: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:28:21.685429: Slow Control sending run file
+2018-05-13 18:28:21.687129: sending the run file from the server to the FPGA
+2018-05-13 18:28:22.691156: starting the FPGA now
+2018-05-13 18:28:22.792222: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:28:38.613376: Slow Control sending run file
+2018-05-13 18:28:38.614769: sending the run file from the server to the FPGA
+2018-05-13 18:28:39.619663: starting the FPGA now
+2018-05-13 18:28:39.720785: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:28:44.405524: Slow Control sending run file
+2018-05-13 18:28:44.406895: sending the run file from the server to the FPGA
+2018-05-13 18:28:45.411264: starting the FPGA now
+2018-05-13 18:28:45.512294: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:30:00.781708: Slow Control sending run file
+2018-05-13 18:30:00.783223: sending the run file from the server to the FPGA
+2018-05-13 18:30:01.787779: starting the FPGA now
+2018-05-13 18:30:01.888767: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:30:04.661571: Slow Control sending run file
+2018-05-13 18:30:04.662928: sending the run file from the server to the FPGA
+2018-05-13 18:30:05.667287: starting the FPGA now
+2018-05-13 18:30:05.768302: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:30:09.293628: Slow Control sending run file
+2018-05-13 18:30:09.295165: sending the run file from the server to the FPGA
+2018-05-13 18:30:10.299427: starting the FPGA now
+2018-05-13 18:30:10.400509: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:30:16.885628: Slow Control sending run file
+2018-05-13 18:30:16.887268: sending the run file from the server to the FPGA
+2018-05-13 18:30:17.891291: starting the FPGA now
+2018-05-13 18:30:17.992136: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:30:33.101494: Slow Control sending run file
+2018-05-13 18:30:33.102960: sending the run file from the server to the FPGA
+2018-05-13 18:30:34.107045: starting the FPGA now
+2018-05-13 18:30:34.208109: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:30:35.445796: Slow Control sending run file
+2018-05-13 18:30:35.447224: sending the run file from the server to the FPGA
+2018-05-13 18:30:36.452055: starting the FPGA now
+2018-05-13 18:30:36.552983: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:30:52.773638: Slow Control sending run file
+2018-05-13 18:30:52.775053: sending the run file from the server to the FPGA
+2018-05-13 18:30:53.779627: starting the FPGA now
+2018-05-13 18:30:53.880670: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:30:54.933908: Slow Control sending run file
+2018-05-13 18:30:54.935490: sending the run file from the server to the FPGA
+2018-05-13 18:30:55.940108: starting the FPGA now
+2018-05-13 18:30:56.041162: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:31:02.869508: Slow Control sending run file
+2018-05-13 18:31:02.870697: sending the run file from the server to the FPGA
+2018-05-13 18:31:03.875363: starting the FPGA now
+2018-05-13 18:31:03.976295: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:31:04.829663: Slow Control sending run file
+2018-05-13 18:31:04.831395: sending the run file from the server to the FPGA
+2018-05-13 18:31:05.836087: starting the FPGA now
+2018-05-13 18:31:05.937146: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:31:13.629761: Slow Control sending run file
+2018-05-13 18:31:13.631017: sending the run file from the server to the FPGA
+2018-05-13 18:31:14.635372: starting the FPGA now
+2018-05-13 18:31:14.736463: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:31:19.013950: Slow Control sending run file
+2018-05-13 18:31:19.015607: sending the run file from the server to the FPGA
+2018-05-13 18:31:20.020078: starting the FPGA now
+2018-05-13 18:31:20.121070: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:31:37.885814: Slow Control sending run file
+2018-05-13 18:31:37.887367: sending the run file from the server to the FPGA
+2018-05-13 18:31:38.891921: starting the FPGA now
+2018-05-13 18:31:38.992828: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:31:39.645732: Slow Control sending run file
+2018-05-13 18:31:39.647367: sending the run file from the server to the FPGA
+2018-05-13 18:31:40.651405: starting the FPGA now
+2018-05-13 18:31:40.752339: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:31:47.093890: Slow Control sending run file
+2018-05-13 18:31:47.095528: sending the run file from the server to the FPGA
+2018-05-13 18:31:48.099986: starting the FPGA now
+2018-05-13 18:31:48.201078: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:31:49.085957: Slow Control sending run file
+2018-05-13 18:31:49.087258: sending the run file from the server to the FPGA
+2018-05-13 18:31:50.090877: starting the FPGA now
+2018-05-13 18:31:50.191940: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:32:02.309398: Slow Control sending run file
+2018-05-13 18:32:02.310868: sending the run file from the server to the FPGA
+2018-05-13 18:32:03.315149: starting the FPGA now
+2018-05-13 18:32:03.416133: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:32:05.245873: Slow Control sending run file
+2018-05-13 18:32:05.247214: sending the run file from the server to the FPGA
+2018-05-13 18:32:06.251614: starting the FPGA now
+2018-05-13 18:32:06.352592: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:32:08.038063: Slow Control sending run file
+2018-05-13 18:32:08.039569: sending the run file from the server to the FPGA
+2018-05-13 18:32:09.043708: starting the FPGA now
+2018-05-13 18:32:09.144795: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:32:10.541959: Slow Control sending run file
+2018-05-13 18:32:10.543349: sending the run file from the server to the FPGA
+2018-05-13 18:32:11.548040: starting the FPGA now
+2018-05-13 18:32:11.649094: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:32:30.486030: Slow Control sending run file
+2018-05-13 18:32:30.487688: sending the run file from the server to the FPGA
+2018-05-13 18:32:31.492168: starting the FPGA now
+2018-05-13 18:32:31.593184: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:32:33.422023: Slow Control sending run file
+2018-05-13 18:33:32.615390: FPGA server started
+2018-05-13 18:33:45.113497: sending FPGA params to Slow Control
+2018-05-13 18:33:47.478316: Slow Control sending run file
+2018-05-13 18:33:47.480039: sending the run file from the server to the FPGA
+2018-05-13 18:33:48.484669: starting the FPGA now
+2018-05-13 18:33:48.585716: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:33:52.590380: Slow Control sending run file
+2018-05-13 18:33:52.591768: sending the run file from the server to the FPGA
+2018-05-13 18:33:53.595543: starting the FPGA now
+2018-05-13 18:33:53.696526: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:34:09.062283: Slow Control sending run file
+2018-05-13 18:34:09.064014: sending the run file from the server to the FPGA
+2018-05-13 18:34:10.068465: starting the FPGA now
+2018-05-13 18:34:10.169501: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:34:11.222339: Slow Control sending run file
+2018-05-13 18:34:11.223763: sending the run file from the server to the FPGA
+2018-05-13 18:34:12.228656: starting the FPGA now
+2018-05-13 18:34:12.329777: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:34:22.174307: Slow Control sending run file
+2018-05-13 18:34:22.175999: sending the run file from the server to the FPGA
+2018-05-13 18:34:23.180366: starting the FPGA now
+2018-05-13 18:34:23.281482: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:34:32.542488: Slow Control sending run file
+2018-05-13 18:34:32.544143: sending the run file from the server to the FPGA
+2018-05-13 18:34:33.548161: starting the FPGA now
+2018-05-13 18:34:33.649055: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:34:35.230475: Slow Control sending run file
+2018-05-13 18:34:35.231643: sending the run file from the server to the FPGA
+2018-05-13 18:34:36.236157: starting the FPGA now
+2018-05-13 18:34:36.337276: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:34:42.406482: Slow Control sending run file
+2018-05-13 18:34:42.407871: sending the run file from the server to the FPGA
+2018-05-13 18:34:43.412250: starting the FPGA now
+2018-05-13 18:34:43.513295: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:34:45.670565: Slow Control sending run file
+2018-05-13 18:34:45.671917: sending the run file from the server to the FPGA
+2018-05-13 18:34:46.676599: starting the FPGA now
+2018-05-13 18:34:46.777495: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:34:58.198532: Slow Control sending run file
+2018-05-13 18:34:58.200192: sending the run file from the server to the FPGA
+2018-05-13 18:34:59.204481: starting the FPGA now
+2018-05-13 18:34:59.305496: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:35:02.494637: Slow Control sending run file
+2018-05-13 18:35:02.496332: sending the run file from the server to the FPGA
+2018-05-13 18:35:03.500747: starting the FPGA now
+2018-05-13 18:35:03.601795: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:35:04.838580: Slow Control sending run file
+2018-05-13 18:35:04.840269: sending the run file from the server to the FPGA
+2018-05-13 18:35:05.844557: starting the FPGA now
+2018-05-13 18:35:05.945661: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:35:21.750656: Slow Control sending run file
+2018-05-13 18:35:21.751920: sending the run file from the server to the FPGA
+2018-05-13 18:35:22.756458: starting the FPGA now
+2018-05-13 18:35:22.857499: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:35:26.382551: Slow Control sending run file
+2018-05-13 18:35:26.384050: sending the run file from the server to the FPGA
+2018-05-13 18:35:27.388723: starting the FPGA now
+2018-05-13 18:35:27.489754: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:35:29.286845: Slow Control sending run file
+2018-05-13 18:35:29.288240: sending the run file from the server to the FPGA
+2018-05-13 18:35:30.292602: starting the FPGA now
+2018-05-13 18:35:30.393664: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:35:30.966662: Slow Control sending run file
+2018-05-13 18:35:30.968330: sending the run file from the server to the FPGA
+2018-05-13 18:35:31.972567: starting the FPGA now
+2018-05-13 18:35:32.073611: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:35:33.070676: Slow Control sending run file
+2018-05-13 18:35:33.072269: sending the run file from the server to the FPGA
+2018-05-13 18:35:34.076350: starting the FPGA now
+2018-05-13 18:35:34.177365: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:35:35.862830: Slow Control sending run file
+2018-05-13 18:35:35.864544: sending the run file from the server to the FPGA
+2018-05-13 18:35:36.869053: starting the FPGA now
+2018-05-13 18:35:36.970115: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:35:54.078798: Slow Control sending run file
+2018-05-13 18:35:54.080549: sending the run file from the server to the FPGA
+2018-05-13 18:35:55.085347: starting the FPGA now
+2018-05-13 18:35:55.186375: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:36:00.454848: Slow Control sending run file
+2018-05-13 18:36:00.456516: sending the run file from the server to the FPGA
+2018-05-13 18:36:01.461080: starting the FPGA now
+2018-05-13 18:36:01.562060: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:36:18.390789: Slow Control sending run file
+2018-05-13 18:36:18.392480: sending the run file from the server to the FPGA
+2018-05-13 18:36:19.396987: starting the FPGA now
+2018-05-13 18:36:19.497934: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:36:55.543016: Slow Control sending run file
+2018-05-13 18:36:55.544711: sending the run file from the server to the FPGA
+2018-05-13 18:36:56.549235: starting the FPGA now
+2018-05-13 18:36:56.650253: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:38:02.335252: Slow Control sending run file
+2018-05-13 18:38:02.336797: sending the run file from the server to the FPGA
+2018-05-13 18:38:03.341294: starting the FPGA now
+2018-05-13 18:38:03.442360: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:38:07.487186: Slow Control sending run file
+2018-05-13 18:38:07.488823: sending the run file from the server to the FPGA
+2018-05-13 18:38:08.492919: starting the FPGA now
+2018-05-13 18:38:08.594000: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:38:15.175285: Slow Control sending run file
+2018-05-13 18:38:15.176731: sending the run file from the server to the FPGA
+2018-05-13 18:38:16.181082: starting the FPGA now
+2018-05-13 18:38:16.282166: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:38:21.479386: Slow Control sending run file
+2018-05-13 18:38:21.481088: sending the run file from the server to the FPGA
+2018-05-13 18:38:22.485808: starting the FPGA now
+2018-05-13 18:38:22.586883: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:38:35.343360: Slow Control sending run file
+2018-05-13 18:38:35.344956: sending the run file from the server to the FPGA
+2018-05-13 18:38:36.349379: starting the FPGA now
+2018-05-13 18:38:36.450469: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:38:38.175359: Slow Control sending run file
+2018-05-13 18:38:38.176741: sending the run file from the server to the FPGA
+2018-052018-05-13 18:51:43.876569: FPGA server started
+2018-05-13 18:52:40.551024: sending FPGA params to Slow Control
+2018-05-13 18:52:46.283912: Slow Control sending run file
+2018-05-13 18:52:46.285750: sending the run file from the server to the FPGA
+2018-05-13 18:52:47.892367: starting the FPGA now
+2018-05-13 18:52:47.993271: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:52:55.892007: Slow Control sending run file
+2018-05-13 18:52:55.893829: sending the run file from the server to the FPGA
+2018-05-13 18:52:57.500355: starting the FPGA now
+2018-05-13 18:52:57.601358: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:53:02.661260: Slow Control sending run file
+2018-05-13 18:53:02.662606: sending the run file from the server to the FPGA
+2018-05-13 18:53:04.269087: starting the FPGA now
+2018-05-13 18:53:04.370131: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:53:29.052554: Slow Control sending run file
+2018-05-13 18:53:29.054457: sending the run file from the server to the FPGA
+2018-05-13 18:53:30.661097: starting the FPGA now
+2018-05-13 18:53:30.762160: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:55:23.408692: Slow Control sending run file
+2018-05-13 18:55:23.409092: sending the run file from the server to the FPGA
+2018-05-13 18:55:25.015019: starting the FPGA now
+2018-05-13 18:55:25.116101: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:55:28.020629: Slow Control sending run file
+2018-05-13 18:55:28.022452: sending the run file from the server to the FPGA
+2018-05-13 18:55:29.628776: starting the FPGA now
+2018-05-13 18:55:29.729808: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:55:31.300491: Slow Control sending run file
+2018-05-13 18:55:31.302413: sending the run file from the server to the FPGA
+2018-05-13 18:55:32.909099: starting the FPGA now
+2018-05-13 18:55:33.010158: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:59:24.252379: sending FPGA params to Slow Control
+2018-05-13 18:59:28.942338: Slow Control sending run file
+2018-05-13 18:59:28.944089: sending the run file from the server to the FPGA
+2018-05-13 18:59:30.551257: starting the FPGA now
+2018-05-13 18:59:30.652363: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:59:36.525589: Slow Control sending run file
+2018-05-13 18:59:36.527287: sending the run file from the server to the FPGA
+2018-05-13 18:59:38.133611: starting the FPGA now
+2018-05-13 18:59:38.234641: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:59:40.575049: Slow Control sending run file
+2018-05-13 18:59:40.576647: sending the run file from the server to the FPGA
+2018-05-13 18:59:42.183708: starting the FPGA now
+2018-05-13 18:59:42.284749: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:59:49.533642: Slow Control sending run file
+2018-05-13 18:59:49.535607: sending the run file from the server to the FPGA
+2018-05-13 18:59:51.142393: starting the FPGA now
+2018-05-13 18:59:51.243410: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:59:53.693718: Slow Control sending run file
+2018-05-13 18:59:53.695214: sending the run file from the server to the FPGA
+2018-05-13 18:59:55.302119: starting the FPGA now
+2018-05-13 18:59:55.403185: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 18:59:57.205706: Slow Control sending run file
+2018-05-13 18:59:57.207095: sending the run file from the server to the FPGA
+2018-05-13 18:59:58.814033: starting the FPGA now
+2018-05-13 18:59:58.915134: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 19:41:19.855231: sending FPGA params to Slow Control
+2018-05-13 19:42:10.707487: Slow Control sending run file
+2018-05-13 19:42:50.274195: FPGA server started
+2018-05-13 19:43:11.449235: FPGA server started
+2018-05-13 19:44:01.855168: sending FPGA params to Slow Control
+2018-05-13 19:44:17.304293: Slow Control sending run file
+2018-05-13 19:47:43.009782: FPGA server started
+2018-05-13 19:49:19.975222: FPGA server started
+2018-05-13 19:49:57.446805: sending FPGA params to Slow Control
+2018-05-13 19:50:15.073514: Slow Control sending run file
+2018-05-13 19:53:13.212159: FPGA server started
+2018-05-13 19:53:26.559182: FPGA server started
+2018-05-13 19:53:43.510282: FPGA server started
+2018-05-13 19:53:56.944477: sending FPGA params to Slow Control
+2018-05-13 19:54:30.781115: Slow Control sending run file
+2018-05-13 19:56:06.879529: FPGA server started
+2018-05-13 19:56:23.520598: FPGA server started
+2018-05-13 19:56:37.178731: sending FPGA params to Slow Control
+2018-05-13 19:57:05.311546: Slow Control sending run file
+2018-05-13 20:06:06.367727: FPGA server started
+2018-05-13 20:06:22.063901: FPGA server started
+2018-05-13 20:06:25.525894: sending FPGA params to Slow Control
+2018-05-13 20:06:42.390464: Slow Control sending run file
+2018-05-13 20:06:42.391724: sending the run file from the server to the FPGA
+2018-05-13 20:06:48.820552: starting the FPGA now
+2018-05-13 20:07:07.087808: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 20:07:49.974684: Slow Control sending run file
+2018-05-13 20:07:49.975972: sending the run file from the server to the FPGA
+2018-05-13 20:08:00.016086: starting the FPGA now
+2018-05-13 20:08:16.165796: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 20:08:41.327588: Slow Control sending run file
+2018-05-13 20:08:59.248544: FPGA server started
+2018-05-13 20:09:09.337280: sending FPGA params to Slow Control
+2018-05-13 20:09:23.266785: Slow Control sending run file
+2018-05-13 20:11:23.697190: FPGA server started
+2018-05-13 20:11:57.727259: sending FPGA params to Slow Control
+2018-05-13 20:12:14.217213: Slow Control sending run file
+2018-05-13 20:12:14.219054: sending the run file from the server to the FPGA
+2018-05-13 20:12:29.082256: starting the FPGA now
+2018-05-13 20:12:55.165980: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 20:13:57.176842: Slow Control sending run file
+2018-05-13 20:13:57.179340: sending the run file from the server to the FPGA
+2018-05-13 20:14:14.453046: starting the FPGA now
+2018-05-13 20:14:36.665067: Slow Control signalling it is at the end or run, checking to see if FPGA is done
+2018-05-13 20:15:36.769829: Slow Control sending run file
+2018-05-13 22:28:06.444725: FPGA server started
+2018-05-13 22:49:59.448924: FPGA server started
+2018-05-13 22:57:42.178889: FPGA server started
+2018-05-13 22:57:45.515932: FPGA server started
+2018-05-13 23:07:10.260724: FPGA server started
+2018-05-13 23:27:41.554260: FPGA server started
+2018-05-13 23:36:12.364240: FPGA server started
+2018-05-13 23:36:15.392744: sending FPGA params to Slow Control
+2018-05-13 23:36:24.866897: Slow Control sending run file
+2018-05-13 23:36:24.868752: sending the run file from the server to the FPGA
+2018-05-13 23:36:43.344627: starting the FPGA now
+2018-05-13 23:46:19.526118: FPGA server started
+2018-05-13 23:46:21.822204: sending FPGA params to Slow Control
+2018-05-13 23:46:32.485450: Slow Control sending run file
+2018-05-13 23:46:58.519113: FPGA server started
+2018-05-13 23:47:05.823288: sending FPGA params to Slow Control
+2018-05-13 23:47:23.422717: Slow Control sending run file
+2018-05-13 23:52:08.856298: FPGA server started
+2018-05-13 23:52:12.105955: sending FPGA params to Slow Control
+2018-05-13 23:52:23.215439: Slow Control sending run file
+2018-05-13 23:57:10.841241: FPGA server started
+2018-05-13 23:57:14.033161: FPGA server started

@@ -1,0 +1,6 @@
+FILE=/home/daq/TauControl/RunFiles/deep_onestep/daggercleaning_250k_100s_1step_store100s.txt
+FILE=/home/daq/TauControl/RunFiles/deep_onestep/daggercleaning_250k_100s_1step_store1000s.txt
+
+
+
+

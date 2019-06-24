@@ -1,0 +1,8 @@
+FILE=/home/daq/TauControl/RunFiles/cleaning_scan/holding_time_10s_2steps_guidetests_cleaningscan_200.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning_scan/holding_time_1510s_2steps_guidetests_cleaningscan_200.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning_scan/holding_time_10s_2steps_guidetests_cleaningscan_300.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning_scan/holding_time_1510s_2steps_guidetests_cleaningscan_300.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning_scan/holding_time_10s_2steps_guidetests_cleaningscan_250.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning_scan/holding_time_1510s_2steps_guidetests_cleaningscan_250.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning_scan/holding_time_10s_2steps_guidetests_cleaningscan_350.txt
+FILE=/home/daq/TauControl/RunFiles/cleaning_scan/holding_time_1510s_2steps_guidetests_cleaningscan_350.txt

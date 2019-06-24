@@ -1,0 +1,10 @@
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017_January_Production/20sHold_50sClean_3Dip.txt

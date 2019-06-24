@@ -1,0 +1,30 @@
+#
+# Each non-comment line must have T=[time] as the first key-value pair.
+# All keys must be assigned values in the first line.
+# An additional key COMMENT can be specified; it's value will be displayed
+# in the GUI and forwarded to MIDAS (unless the user changes it in the
+# GUI before the run is started).
+#
+#    Key          Value
+# -------------------------------------------------------------------------
+#     T           Elapsed time of event [seconds, floating-point number >= 0]
+#   TRAPDOOR      State to put the trap door in [FILL/HOLD/DUMP]
+#   DAGGER        Dagger position [steps].
+#   GIANTCLEANER  Cleaner Position [steps].
+#   GATEVALVE     [OPEN/CLOSED]
+#   BEAM          [ON/OFF]
+#   CLEANER       [DOWN/UP]
+#   BUTTERFLY     [OPEN/CLOSED]
+# -------------------------------------------------------------------------
+#
+# This is the comment that will be displayed in the GUI and forwared to MIDAS.
+COMMENT =  Holding time 10s, fill 150 s, clean 100s w/ Giant Cleaner, Dagger at 450k, 1 step to 250k
+# At T=0, all parameters should be assigned values.
+T=0, TRAPDOOR=FILL, DAGGER=490000, GATEVALVE=OPEN, BEAM=OFF, CLEANER=DOWN, GIANTCLEANER=100000
+# Close the trap door, close the gate valve, turn the beam off
+T=150, TRAPDOOR=HOLD, GATEVALVE=CLOSED, BEAM=ON
+T=250, CLEANER=UP, GIANTCLEANER=10387500  # Cleaner up ##### Beginning of holding period #####
+T=260, DAGGER=250000  # Dagger down ##### End of holding period #####
+T=560, DAGGER=10000, TRAPDOOR=DUMP # Move the dagger up
+T=660, TRAPDOOR=FILL
+

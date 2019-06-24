@@ -1,0 +1,12 @@
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_3sDelay_DaggerMove_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_10sDelay_DaggerMove_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_3sDelay_Dagger380k_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_10sDelay_Dagger380k_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_3sDelay_Dagger490k_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_10sDelay_Dagger490k_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_3sDelay_DaggerMove_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_10sDelay_DaggerMove_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_3sDelay_Dagger380k_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_10sDelay_Dagger380k_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_3sDelay_Dagger490k_GiantCleaner.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bump_Data/150sFill_10sDelay_Dagger490k_GiantCleaner.txt

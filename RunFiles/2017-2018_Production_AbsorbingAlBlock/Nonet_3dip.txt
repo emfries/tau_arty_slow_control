@@ -1,0 +1,9 @@
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_AbsorbingAlBlock/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_AbsorbingAlBlock/50sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_AbsorbingAlBlock/100sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_AbsorbingAlBlock/200sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_AbsorbingAlBlock/400sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_AbsorbingAlBlock/600sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_AbsorbingAlBlock/800sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_AbsorbingAlBlock/1200sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_AbsorbingAlBlock/1550sHold_50sClean_3Dip.txt

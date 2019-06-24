@@ -1,0 +1,4 @@
+FILE=/home/daq/TauControl/RunFiles/2017_Bkg/Background_BeamOnForFill.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bkg/Bkg_20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017_Bkg/Bkg_1550sHold_50sClean_3Dip_ExtendedBeam.txt
+

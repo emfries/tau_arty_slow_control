@@ -1,0 +1,4 @@
+FILE=/home/daq/TauControl/RunFiles/2016_LargeCleanerOnly_LT_slow_dagger/20sHold_200sClean_optimum9Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2016_LargeCleanerOnly_LT_slow_dagger/1020sHold_200sClean_Optimum9Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2016_LargeCleanerOnly_LT_slow_dagger/20sHold_200sClean_Optimum9Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2016_LargeCleanerOnly_LT_slow_dagger/1020sHold_200sClean_Optimum9Dip.txt

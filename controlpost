@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# This script posts ODB information automatically to the Tau DAQ Elog at the
+# start of a control run
+
+## Submit file to elog ##
+# odbedit -c 'ls /Runinfo/' >> ./tmp/runparams.txt
+#/usr/local/bin/odbedit -c 'ls /Runinfo/' >> $1
+/usr/local/bin/elog -h ucn-ems.lanl.gov -p 8080 -l TauDAQ -xv -a Author="Auto" -a Category="Control" -m $1 -f $2

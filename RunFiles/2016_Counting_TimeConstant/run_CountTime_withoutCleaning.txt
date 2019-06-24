@@ -1,0 +1,15 @@
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/no_cleaner_490k_clean100s_store10s_4steps_380KDetect.txt
+FILE=/home/daq/TauControl/RunFiles/intermission-reversedBeam.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/no_cleaner_490k_clean100s_store10s_4steps_380KDetect.txt
+FILE=/home/daq/TauControl/RunFiles/intermission-reversedBeam.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/no_cleaner_490k_clean100s_store10s_4steps_250KDetect.txt
+FILE=/home/daq/TauControl/RunFiles/intermission-reversedBeam.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/no_cleaner_490k_clean100s_store10s_4steps_250KDetect.txt
+FILE=/home/daq/TauControl/RunFiles/intermission-reversedBeam.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/no_cleaner_490k_clean100s_store10s_4steps_120KDetect.txt
+FILE=/home/daq/TauControl/RunFiles/intermission-reversedBeam.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/no_cleaner_490k_clean100s_store10s_4steps_120KDetect.txt
+FILE=/home/daq/TauControl/RunFiles/intermission-reversedBeam.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/no_cleaner_490k_clean100s_store10s_4steps_10KDetect.txt
+FILE=/home/daq/TauControl/RunFiles/intermission-reversedBeam.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Counting_TimeConstant/no_cleaner_490k_clean100s_store10s_4steps_10KDetect.txt

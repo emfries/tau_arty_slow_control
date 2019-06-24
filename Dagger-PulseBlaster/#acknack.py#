@@ -1,0 +1,75 @@
+#!/usr/bin/python
+
+import sys
+import socket
+import string
+from time import sleep
+
+# Change these if necessary
+
+motor_ip = "10.10.10.14"
+
+TESTMODE = False # if True, commands are written to test_giantCleaner.txt instead of the serial port.
+
+accel_str = 'AC10'  # rev/s/s
+decel_str = 'DE10'  # rev/s/s
+vel_str = 'VE1'  # rev/s
+CC_str = 'CC2.0'
+
+termchar = '\r'
+eSCL_Header = "\000\007" #Needs to be first part so drive knows it's an eSCL command
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.bind(("10.10.10.21", 7774))
+sock.settimeout(0.5)
+
+def empty_buffer():
+        print "Emptying buffer..."
+        while True:
+        	try:
+                        response = sock.recv(1024)
+                        print response
+                except socket.timeout:
+                        print "buffer empty"
+                        break
+
+def pollute_buffer(cmds):
+        for cmd in cmds:
+                sock.sendto(eSCL_Header + cmd + termchar, (motor_ip, 7775))
+
+
+def tell_motor(cmd_string):
+        print "Sending " + cmd_string 
+        sock.sendto(eSCL_Header + cmd_string + termchar, (motor_ip, 7775))
+        try:
+                response = sock.recv(1024)
+        except socket.timeout:
+                print "no response from motor..."
+                response=''
+        if '%' in response:
+                print "motor acknowledged command"
+        if '?' in response:
+                print "motor did not recognize command (Nack):"+response
+        return response
+pollute_buffer(["z1","k1", "g"])
+empty_buffer()
+tell_motor(decel_str)
+tell_motor(vel_str)                
+tell_motor(accel_str)
+
+bad_cmd_string = 'z1'
+#print "Sending bad command" + bad_cmd_string 
+#sock.sendto(eSCL_Header + bad_cmd_string + termchar, (motor_ip, 7775))
+
+
+while(True):
+	try:
+		command = raw_input("[TXM34] > ")
+	except EOFError, KeyboardInterrupt:
+		print "Thanks for Using the program!"
+		break
+        data = tell_motor(command)
+        print "[TXM34] < "+data
+	
+pollute_buffer(["z1","k1", "g"])
+sock.close()

@@ -1,0 +1,7 @@
+FILE=/home/daq/TauControl/RunFiles/deep_twostep/daggercleaning_250k_100s_2step_store10s.txt
+FILE=/home/daq/TauControl/RunFiles/deep_twostep/daggercleaning_250k_100s_2step_store200s.txt
+FILE=/home/daq/TauControl/RunFiles/deep_twostep/daggercleaning_250k_100s_2step_store1430s.txt
+
+
+
+

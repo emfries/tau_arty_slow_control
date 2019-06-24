@@ -1,0 +1,10 @@
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_Roundhouse/20sHold_50sClean_3Dip_GVOpen.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_Roundhouse/1550sHold_50sClean_3Dip_InterleavedBeam_GVOpen.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_Roundhouse/1550sHold_50sClean_3Dip_InterleavedBeam_GVOpen.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_Roundhouse/50sHold_50sClean_3Dip_GVOpen.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_Roundhouse/100sHold_50sClean_3Dip_GVOpen.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_Roundhouse/1550sHold_50sClean_3Dip_InterleavedBeam_GVOpen.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_Roundhouse/1550sHold_50sClean_3Dip_InterleavedBeam_GVOpen.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production_Roundhouse/200sHold_50sClean_3Dip_GVOpen.txt
+
+

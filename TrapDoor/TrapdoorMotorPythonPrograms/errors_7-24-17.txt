@@ -1,0 +1,4 @@
+readObject result: 1
+1
+readObject result: 29472
+29472

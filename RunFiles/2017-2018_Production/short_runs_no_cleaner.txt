@@ -1,0 +1,4 @@
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/20sHold_NoCleaning_Dagger380000.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/20sHold_NoCleaning_Dagger380000.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/20sHold_NoCleaning_Dagger380000.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/20sHold_NoCleaning_Dagger380000.txt

@@ -1,0 +1,4 @@
+FILE=/home/daq/TauControl/RunFiles/2016_Dagger_Counting_Rate/DagDipConstRate.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Dagger_Counting_Rate/DagDipConstRate.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Dagger_Counting_Rate/DagDipConstRate.txt
+FILE=/home/daq/TauControl/RunFiles/2016_Dagger_Counting_Rate/DagDipConstRate.txt

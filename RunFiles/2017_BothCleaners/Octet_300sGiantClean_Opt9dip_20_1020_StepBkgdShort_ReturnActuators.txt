@@ -1,0 +1,8 @@
+FILE=/home/daq/TauControl/RunFiles/2017_BothCleaners/20sHold_300sClean_Optimum9Dip_StepBkgd_ReturnActuators.txt
+FILE=/home/daq/TauControl/RunFiles/2017_BothCleaners/1020sHold_300sClean_Optimum9Dip_ReturnActuators.txt
+FILE=/home/daq/TauControl/RunFiles/2017_BothCleaners/20sHold_300sClean_Optimum9Dip_StepBkgd_ReturnActuators.txt
+FILE=/home/daq/TauControl/RunFiles/2017_BothCleaners/1020sHold_300sClean_Optimum9Dip_ReturnActuators.txt
+FILE=/home/daq/TauControl/RunFiles/2017_BothCleaners/20sHold_300sClean_Optimum9Dip_StepBkgd_ReturnActuators.txt
+FILE=/home/daq/TauControl/RunFiles/2017_BothCleaners/1020sHold_300sClean_Optimum9Dip_ReturnActuators.txt
+FILE=/home/daq/TauControl/RunFiles/2017_BothCleaners/20sHold_300sClean_Optimum9Dip_StepBkgd_ReturnActuators.txt
+FILE=/home/daq/TauControl/RunFiles/2017_BothCleaners/1020sHold_300sClean_Optimum9Dip_ReturnActuators.txt

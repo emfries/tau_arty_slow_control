@@ -1,0 +1,21 @@
+#
+#  Parameter    Description
+#  ------------------------------------------------------------------------------------
+#     T         Elapsed time of event [seconds, floating-point number >= 0]
+#   TRAPDOOR    State to put the trap door in [FILL/HOLD/DUMP]
+#   DAGGER      Dagger position (steps; the server calculates the relative displacement)
+#   GATEVALVE   OPEN/CLOSED
+#   BEAM        ON/OFF
+#   CLEANER     DOWN/UP
+#  ------------------------------------------------------------------------------------
+#
+COMMENT = Test run 2
+# At T=0, all parameters should be assigned values.
+T=0, TRAPDOOR=FILL, DAGGER=400000, GATEVALVE=OPEN, BEAM=ON, CLEANER=DOWN
+# Close the trap door, close the gate valve, turn the beam off
+T=2, TRAPDOOR=HOLD, GATEVALVE=CLOSED, BEAM=OFF
+T=6, CLEANER=UP   # Cleaner up ##### Beginning of holding period #####
+T=6.2, DAGGER=1000  # Dagger down ##### End of holding period #####
+T=7.4, TRAPDOOR=DUMP # Open the trap door (keeping the dagger down)
+T=8.00, DAGGER=400000 # Move the dagger up
+T=10.00   # Don't do anything, but keep the run going a bit longer

@@ -1,0 +1,28 @@
+root [0] int x = 0x000031B3
+root [1] x
+(int)12723
+root [2] int y = 0xFFE66187
+root [3] x
+(int)12723
+root [4] y
+(int)(-1678969)
+root [5] x-y
+(int)1691692
+root [6] int x2 = 0x000028A2
+root [7] int y2 = 0xFFE64667
+root [8] x2-y2
+(int)1696315
+root [9] (1691692+1696315)/2
+(const int)1694003
+root [10] int up = 0xFFEA2BBB
+root [11] int down = 0xFFFDB3B9
+root [12] up-down
+(int)(-1279998)
+root [13] down-up
+(int)1279998
+root [14] 8000000.0/1279998.0
+(const double)6.25000976564025912e+00
+root [15] 6.25*1694000
+(const double)1.05875000000000000e+07
+root [16] 6.25*1694000.0
+(const double)1.05875000000000000e+07

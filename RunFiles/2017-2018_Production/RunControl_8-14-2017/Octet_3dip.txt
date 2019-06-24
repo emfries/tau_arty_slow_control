@@ -1,0 +1,9 @@
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/20sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/1350sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/50sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/1350sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/100sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/1350sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/200sHold_50sClean_3Dip.txt
+FILE=/home/daq/TauControl/RunFiles/2017-2018_Production/1350sHold_50sClean_3Dip.txt
+

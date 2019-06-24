@@ -1,0 +1,10 @@
+FILE=/home/daq/TauControl/RunFiles/Active_Cleaner_Scan_200s_shorter.txt
+FILE=/home/daq/TauControl/RunFiles/Active_Cleaner_Scan_200s_shorter.txt
+FILE=/home/daq/TauControl/RunFiles/Active_Cleaner_Scan_200s_shorter.txt
+FILE=/home/daq/TauControl/RunFiles/Active_Cleaner_Scan_200s_shorter.txt
+FILE=/home/daq/TauControl/RunFiles/Active_Cleaner_Scan_200s_shorter.txt
+FILE=/home/daq/TauControl/RunFiles/Active_Cleaner_Scan_200s_shorter.txt
+FILE=/home/daq/TauControl/RunFiles/Active_Cleaner_Scan_200s_shorter.txt
+FILE=/home/daq/TauControl/RunFiles/Active_Cleaner_Scan_200s_shorter.txt
+FILE=/home/daq/TauControl/RunFiles/Active_Cleaner_Scan_200s_shorter.txt
+FILE=/home/daq/TauControl/RunFiles/Active_Cleaner_Scan_200s_shorter.txt

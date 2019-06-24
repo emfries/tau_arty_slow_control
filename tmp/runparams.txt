@@ -1,0 +1,11 @@
+Run Number : 11482
+Comment : UNBLINDED new slow control test: 300s Fill (dag 380k) | 50s Clean (dag up) | 20s holding | 3 dip |
+Beam Veto Events (time, new state) : (0, false) (300, true)
+Cleaner Down Events (time, new state) : (0, true) (350, false) (630, true)
+West Gate Valve Open Events (time, new state) : (0, true) (300, false)
+Roundhouse Gate Valve Open Events (time, new state) : (0, true) (300, false)
+Butterfly Valve Closed Events (time, new state) :
+Trapdoor Events (time, new state) : (0, FILL) (300, HOLD) (580, DUMP) (630, FILL)
+Dagger Position Events (time, new position in steps) : (0, 380000) (300, 490000) (370, 380000) (410, 250000) (430, 10000) (630, 380000)
+Giant Cleaner Position Events (time, new position in steps) : (0, 100000) (350, 1.03875e+07) (630, 100000)
+------------------------------------

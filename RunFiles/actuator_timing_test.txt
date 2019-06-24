@@ -1,0 +1,42 @@
+#
+# Each non-comment line must have T=[time] as the first key-value pair.
+# All keys must be assigned values in the first line.
+# An additional key COMMENT can be specified; it's value will be displayed
+# in the GUI and forwarded to MIDAS (unless the user changes it in the
+# GUI before the run is started).
+#
+#    Key        Value
+# -------------------------------------------------------------------------
+#     T         Elapsed time of event [seconds, floating-point number >= 0]
+#   TRAPDOOR    State to put the trap door in [FILL/HOLD/DUMP]
+#   DAGGER      Dagger position [steps].
+#   GATEVALVE   [OPEN/CLOSED]
+#   BEAM        [ON/OFF]
+#   CLEANER     [DOWN/UP]
+# -------------------------------------------------------------------------
+#
+# This is the comment that will be displayed in the GUI and forwared to MIDAS.
+COMMENT = Actuator timing test
+T=0, TRAPDOOR=FILL, DAGGER=490000, GATEVALVE=CLOSED, BEAM=ON, CLEANER=DOWN
+#Trap door preceeding dagger 5s at previously simultaneous moves
+T=100, TRAPDOOR=FILL
+T=105, DAGGER=370000
+T=120, DAGGER=250000
+T=140, TRAPDOOR=HOLD
+T=145, DAGGER=130000
+T=160, DAGGER=10000
+T=195, DAGGER=490000
+T=200, TRAPDOOR=FILL
+T=240, DAGGER=10000
+#Dagger preceeding trap door 5s at previously simultaneous moves
+T=255, DAGGER=130000
+T=260, TRAPDOOR=HOLD
+T=275, DAGGER=250000
+T=280, TRAPDOOR=DUMP
+T=295, DAGGER=370000
+T=300, TRAPDOOR=DUMP
+T=315, DAGGER=490000
+T=320, TRAPDOOR=FILL
+T=360, BEAM=OFF
+
+
