@@ -1510,7 +1510,7 @@ bool ControlGUI::start_midas()
     return true;
 }
 
-bool ControlGUI::setdb(double ft,double ct)
+bool ControlGUI::setdb(double ct,double ft)
 {
 #if !TESTDAQ
     /*QProcess process(this);
