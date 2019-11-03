@@ -1090,7 +1090,7 @@ void ControlGUI::startButton_clicked(bool firstcall, bool updatePattern)
     for(int i_daggerQueue=0;i_daggerQueue<daggerQueue.size();i_daggerQueue++){
     #if !TESTDAGGER
         zmq_send(socket_dagger, daggerQueue.at(i_daggerQueue).toLocal8Bit().data(), daggerQueue.at(i_daggerQueue).size(), 0);
-        inbytes = zmq_recv(socket_dagger, dagger_recv_buffer, dagger_recv_buffer_size-1, 0);
+        nbytes = zmq_recv(socket_dagger, dagger_recv_buffer, dagger_recv_buffer_size-1, 0);
         assert(nbytes != -1);
         dagger_recv_buffer[nbytes] = '\0'; // properly NULL terminate received string
         QString zdagger_str(dagger_recv_buffer);
@@ -2091,7 +2091,6 @@ void ControlGUI::get_midas_odb()
     
 #if BLIND
     factor = thing1;
-    factor = 1.9; // TODO
 #else
     factor = 1.0;
 #endif
